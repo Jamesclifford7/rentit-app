@@ -2,12 +2,12 @@ import React from 'react'
 import Nav from '../navbar/Nav'
 import './Checkout.css'
 
-function Checkout() {
+function Checkout(props) {
     return (
         <>
-            <Nav />
+            <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
             <main>
-                <div class="checkout">
+                <div className="checkout">
                     <h1>Checkout</h1>
                     <h3>You Are About to Rent the Following Item:</h3>
                     <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="300" width="auto" />
@@ -20,18 +20,18 @@ function Checkout() {
                     <form>
                         <fieldset>
                             <legend><h2>Choose Rental Period</h2></legend>
-                            <label for="pickupdate">Pickup Date</label>
+                            <label htmlFor="pickupdate">Pickup Date</label>
                             <input id="pickupdate" type="date"/>
-                            <label for="returndate">Return Date</label>
+                            <label htmlFor="returndate">Return Date</label>
                             <input id="returndate" type="date"/><br/>
                         </fieldset><br/>
-                        <fieldset class="creditcard">
+                        <fieldset className="creditcard">
                             <legend><h2>Enter Credit Card Info</h2></legend>
-                            <label for="ccnumber">Credit Card Number:</label>
+                            <label htmlFor="ccnumber">Credit Card Number:</label>
                             <input id="ccnumber" type="text" /><br/>
-                            <label for="expiration">Expiration Date:</label>
+                            <label htmlFor="expiration">Expiration Date:</label>
                             <input id="expiration" type="text" /><br/>
-                            <label for="securitycode">Security Code:</label>
+                            <label htmlFor="securitycode">Security Code:</label>
                             <input id="securitycode" type="text" />
                         </fieldset>
                         <button type="submit">Rent</button>

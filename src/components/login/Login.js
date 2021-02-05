@@ -2,19 +2,19 @@ import React from 'react'
 import Nav from '../navbar/Nav'
 import './Login.css'
 
-function Login() {
+function Login(props) {
     return (
         <>
-            <Nav />
+            <Nav isLoggedIn={props.isLoggedIn} />
             <main>
-                <div class="login-form">
+                <div className="login-form">
                     <h1>Login</h1>
-                    <form>
-                        <label for="email">Email or Username:</label>
-                        <input type="text" id="email"  /><br />
-                        <label for="password">Password:</label>
-                        <input type="text" id="password"  /><br/>
-                        <button>Login</button>
+                    <form onSubmit={event => props.handleLogin(event)}>
+                        <label htmlFor="email">Email or Username:</label>
+                        <input type="text" id="email" /><br />
+                        <label htmlFor="password">Password:</label>
+                        <input type="password" id="password" /><br/>
+                        <button type="submit">Login</button>
                     </form>
                 </div>
             </main>

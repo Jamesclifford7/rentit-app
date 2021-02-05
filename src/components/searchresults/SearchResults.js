@@ -2,68 +2,46 @@ import React from 'react'
 import Nav from '../navbar/Nav'
 import './SearchResults.css'
 
-function SearchResults() {
+function SearchResults(props) {
+    // console.log(props.results)
     return (
         <>
-            <Nav />
+            <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
             <main>
-                <div class="search-results">
+                <div className="search-results">
                     <h1>Search</h1>
-                    <form>
-                        <label for="search">Search For:</label>
+                    <form onSubmit={event => props.handleSearch(event)}>
+                        <label htmlFor="search">Search For:</label>
                         <input id="search" type="text"/>
-                        <label for="category">In Category:</label>
+                        <label htmlFor="category">In Category:</label>
                         <select id="category">
-                            <option value="appliance">Household Appliance</option>
-                            <option value="tools">Tools</option>
-                            <option value="athletic">Athletic Equipment</option>
-                            <option value="other">Other</option>
+                            <option value="1">Household Appliance</option>
+                            <option value="2">Tools</option>
+                            <option value="3">Athletic Equipment</option>
+                            <option value="4">Outdoor Equipment</option>
+                            <option value="4">Other</option>
                         </select>
-                        <label for="city">In City:</label>
+                        <label htmlFor="city">In City:</label>
                         <select id="city">
-                            <option value="la">Los Angeles</option>
-                            <option value="ny">New York</option>
-                            <option value="chicago">Chicago</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="New York">New York</option>
+                            <option value="Chicago">Chicago</option>
                         </select>
-                        <button>Find</button>
+                        <button type="submit">Find</button>
                     </form>
                 </div>
-                <div class="results">
-                    <div class="result">
-                        <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-                        <div class="result-right">
-                            <h3>Item Name</h3>
-                            <p>Location</p>
-                        </div>
-                    </div>
-                    <div class="result">
-                        <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-                        <div class="result-right">
-                            <h3>Item Name</h3>
-                            <p>Location</p>
-                        </div>
-                    </div>
-                    <div class="result">
-                        <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-                        <div class="result-right">
-                            <h3>Item Name</h3>
-                            <p>Location</p>
-                        </div>
-                    </div>
-                    <div class="result">
-                        <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-                        <div class="result-right">
-                            <h3>Item Name</h3>
-                            <p>Location</p>
-                        </div>
-                    </div>
-                    <div class="result">
-                        <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-                        <div class="result-right">
-                            <h3>Item Name</h3>
-                            <p>Location</p>
-                        </div>
-                    </div>
+                <div className="results">
+                    {
+                        props.results.map(result => {
+                            return <div className="result">
+                                <img src={result.img_url} height="100px" width="auto" />
+                                <div className="result-right">
+                                    <h3>{result.item_name}</h3>
+                                    <p>{result.city}</p>
+                                </div>
+                            </div>
+                        })
+                    }
                 </div>
             </main>
             <footer>
@@ -74,3 +52,15 @@ function SearchResults() {
 }
 
 export default SearchResults
+
+/*
+
+<div className="result">
+    <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
+    <div className="result-right">
+        <h3>Item Name</h3>
+        <p>Location</p>
+    </div>
+</div>
+
+*/

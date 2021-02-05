@@ -2,19 +2,19 @@ import React from 'react'
 import Nav from '../navbar/Nav'
 import './EditProfile.css'
 
-function EditProfile() {
+function EditProfile(props) {
     return (
         <>
-            <Nav />
+            <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
             <main>
-                <div class="edit-profile">
+                <div className="edit-profile">
                     <h1>Edit Profile</h1>
                     <img src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png" height="100" width="auto" alt="profile icon" /><br/>
                     <button>Upload Image</button>
                     <form>
-                        <label for="name">Name:</label>
+                        <label htmlFor="name">Name:</label>
                         <input id="name" type="text" /><br/>
-                        <label for="city">City:</label>
+                        <label htmlFor="city">City:</label>
                         <select id="city">
                             <option value="la">Los Angeles</option>
                             <option value="ny">New York</option>
@@ -22,13 +22,13 @@ function EditProfile() {
                         </select><br/>
                         <button>Update</button>
                     </form>
-                    <div class="listings">
+                    <div className="listings">
                         <h2>My Listings</h2>
-                        <div class="listing">
+                        <div className="listing">
                             <h4>Item</h4>
                             <button>Delete</button>
                         </div>
-                        <div class="listing">
+                        <div className="listing">
                             <h4>Item</h4>
                             <button>Delete</button>
                         </div>

@@ -3,17 +3,17 @@ import Nav from '../navbar/Nav'
 import { Link } from 'react-router-dom'
 import './Signup.css'
 
-function Signup() {
+function Signup(props) {
     return (
         <>
-            <Nav />
+            <Nav isLoggedIn={props.isLoggedIn} />
             <main>
-                <div class="signup-form">
+                <div className="signup-form">
                     <h1>Sign Up</h1>
                     <form>
-                        <label for="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input type="text" id="email"  />
-                        <label for="password">Password:</label>
+                        <label htmlFor="password">Password:</label>
                         <input type="text" id="password"  />
                         <button>Sign Up</button>
                     </form>
