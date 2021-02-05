@@ -1,0 +1,21 @@
+
+
+.signup-form {
+    background-color: blanchedalmond;
+    width: 50%;
+    border: solid;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 400px;
+}
+
+.signup-form form {
+    text-align: left;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.signup-form label, .signup-form input, .signup-form button {
+    margin-bottom: 10px;
+    display: inline-block;
+} 

@@ -1,0 +1,25 @@
+.edit-profile {
+    background-color: blanchedalmond;
+    width: 50%;
+    border: solid;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.edit-profile img, .edit-profile button, .edit-profile input, .edit-profile select {
+    margin-bottom: 10px;
+}
+
+.listing {
+    border-top: solid; 
+    padding: 20px;
+}
+
+.listing h4, .listing button {
+    display: inline;
+}
+
+.listing button {
+    float: right;
+    margin-right: 10px;
+}

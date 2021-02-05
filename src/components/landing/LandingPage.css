@@ -1,0 +1,103 @@
+/* main: landing */ 
+
+main {
+    text-align: center;
+}
+
+main h1 {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main .landing-container {
+    padding-top: 70px;
+    padding-bottom: 250px;
+}
+
+/* main: about */
+
+main .about-container {
+    background-color: blanchedalmond;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+main .about-container p {
+    margin: 0 auto;
+    width: 60%;
+    line-height: 30px;
+}
+
+/* main: demo */
+
+main .demo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+main .demo-container .demo-item {
+    border: solid;
+    width: 20%;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+main .demo-container .demo-item h3 {
+    padding-bottom: 10px;
+}
+
+main .demo-container .demo-item p {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* main: signup container */
+
+.signup-container {
+    background-color: blanchedalmond;
+    padding-top: 40px;
+}
+
+.signup-container .signup-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.signup-container .signup-flex-container .signup-left, .signup-container .signup-flex-container .signup-right {
+    width: 100%;
+    padding-bottom: 150px;
+    /* position: relative; */
+}
+
+.signup-container .signup-flex-container .signup-left h3, .signup-container .signup-flex-container .signup-left button {
+    margin: 0; 
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+}
+
+.signup-container .signup-flex-container .signup-left button {
+    margin-top: 20px;
+} 
+
+.signup-container .signup-flex-container .signup-right {
+    border-left: solid;
+}
+
+/* footer */
+
+footer {
+    border-top: solid;
+    border-width: 0.5px;
+}
+
+footer span {
+    margin: 0;
+    margin-left: 10px;
+    display: block;
+    padding: 10px;
+}

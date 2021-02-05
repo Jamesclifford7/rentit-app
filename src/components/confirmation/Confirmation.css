@@ -1,0 +1,16 @@
+.confirmation {
+    background-color: blanchedalmond;
+    width: 70%;
+    border: solid;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.confirmation h1 {
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.confirmation button {
+    margin-bottom: 20px;
+}

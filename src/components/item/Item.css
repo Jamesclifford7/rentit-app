@@ -1,0 +1,16 @@
+.item {
+    background-color: blanchedalmond;
+    width: 70%;
+    border: solid;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.item h1 {
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.item button {
+    margin-bottom: 10px;
+}

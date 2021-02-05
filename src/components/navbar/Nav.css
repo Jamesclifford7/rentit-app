@@ -1,0 +1,29 @@
+/* header */
+
+header {
+    height: 70px;
+    border-bottom: solid;
+    margin: 0;
+    background-color: blanchedalmond;
+}
+  
+header h2 {
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 20px;
+    width: 20%;
+    padding: 20px; 
+}
+
+header nav {
+    margin: 0 auto;
+    width: 25%;
+    display: inline;
+    float: right;
+    padding: 8px;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 50px;
+}

@@ -1,0 +1,17 @@
+.list-item {
+    background-color: blanchedalmond;
+    width: 70%;
+    border: solid;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.list-item h1 {
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.list-item img, .list-item button, .list-item label, .list-item input, .list-item select {
+    margin: 8px;
+}
