@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from '../navbar/Nav'
 import './SearchResults.css'
+import { Link } from 'react-router-dom'
 
 function SearchResults(props) {
     // console.log(props.results)
@@ -19,7 +20,7 @@ function SearchResults(props) {
                             <option value="2">Tools</option>
                             <option value="3">Athletic Equipment</option>
                             <option value="4">Outdoor Equipment</option>
-                            <option value="4">Other</option>
+                            <option value="5">Other</option>
                         </select>
                         <label htmlFor="city">In City:</label>
                         <select id="city">
@@ -31,16 +32,19 @@ function SearchResults(props) {
                     </form>
                 </div>
                 <div className="results">
-                    {
-                        props.results.map(result => {
-                            return <div className="result">
+                    {   props.results[0]
+                        ? props.results.map((result, idx) => {
+                            return <div className="result" key={idx}>
                                 <img src={result.img_url} height="100px" width="auto" />
                                 <div className="result-right">
-                                    <h3>{result.item_name}</h3>
+                                    <h3><Link to={`/item/${result.id}`}>{result.item_name}</Link></h3>
                                     <p>{result.city}</p>
                                 </div>
                             </div>
                         })
+                        : <div>
+                            <h3>No items found</h3>
+                        </div>
                     }
                 </div>
             </main>

@@ -25,6 +25,8 @@ function ListItem(props) {
                         <input id="dailycost" type="text"/><br/>
                         <label htmlFor="monthlycost">Monthly Cost:</label>
                         <input id="monthlycost" type="text"/><br/>
+                        <label htmlFor="description">Description:</label>
+                        <textarea id="description" type="text"/><br/>
                         <button>List</button>
                     </form>
                 </div>

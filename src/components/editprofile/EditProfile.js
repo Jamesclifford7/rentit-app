@@ -16,22 +16,22 @@ function EditProfile(props) {
                         <input id="name" type="text" /><br/>
                         <label htmlFor="city">City:</label>
                         <select id="city">
-                            <option value="la">Los Angeles</option>
-                            <option value="ny">New York</option>
-                            <option value="chicago">Chicago</option>
+                            <option value="Los Angeles">Los Angeles</option>
+                            <option value="New York">New York</option>
+                            <option value="Chicago">Chicago</option>
                         </select><br/>
                         <button>Update</button>
                     </form>
                     <div className="listings">
                         <h2>My Listings</h2>
-                        <div className="listing">
-                            <h4>Item</h4>
-                            <button>Delete</button>
-                        </div>
-                        <div className="listing">
-                            <h4>Item</h4>
-                            <button>Delete</button>
-                        </div>
+                        {
+                            props.user.listed_items.map((item, idx) => {
+                                return <div className="listing" key={idx}>
+                                            <h4>{item.item_name}</h4>
+                                            <button>Delete</button>
+                                        </div>
+                            })
+                        }
                     </div>
                 </div>
             </main>
@@ -43,3 +43,12 @@ function EditProfile(props) {
 }
 
 export default EditProfile
+
+/*
+
+<div className="listing">
+    <h4>Item</h4>
+    <button>Delete</button>
+</div>
+
+*/

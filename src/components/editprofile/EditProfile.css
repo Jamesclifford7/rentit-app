@@ -10,6 +10,10 @@
     margin-bottom: 10px;
 }
 
+.edit-profile select {
+    margin-left: 5px;
+}
+
 .listing {
     border-top: solid; 
     padding: 20px;
