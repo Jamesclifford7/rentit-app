@@ -101,9 +101,9 @@ class Checkout extends React.Component {
                                                 <fieldset>
                                                     <legend><h2>Choose Rental Period</h2></legend>
                                                     <label htmlFor="pickupdate">Pickup Date</label>
-                                                    <input onChange={event => this.getStartDate(event)} id="pickupdate" type="date"/>
+                                                    <input onChange={event => this.getStartDate(event)} id="pickupdate" type="date" required/>
                                                     <label htmlFor="returndate">Return Date</label>
-                                                    <input onChange={event => this.calculateCost(event)} id="returndate" type="date"/><br/>
+                                                    <input onChange={event => this.calculateCost(event)} id="returndate" type="date" required/><br/>
                                                     <input type="hidden" id="itemid" value={item.id} />
                                                 </fieldset><br/>
                                                 <h3>Total Cost: ${this.state.totalCost}</h3>

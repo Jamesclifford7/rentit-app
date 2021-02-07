@@ -1,7 +1,8 @@
 import React from 'react'
 import './App.css';
 import { Route, withRouter } from 'react-router-dom'
-import items from './STORE'
+import items from './MockItems'
+import users from './MockUsers'
 import LandingPage from './components/landing/LandingPage'
 import Signup from './components/signup/Signup'
 import CreateProfile from './components/createprofile/CreateProfile'
@@ -20,81 +21,9 @@ class App extends React.Component {
     super(); 
     this.state = {
       isLoggedIn: false,
-      user: {
-        id: 1,
-        name: "John Smith", 
-        email: "johnsmith@gmail.com",
-        username: "johnsmith1", 
-        password: "smithjohn11",
-        city: "Los Angeles", 
-        profile_img: "",
-        rental_history: [
-            {
-                id: 31,
-                item_name: "Saw", 
-                category: 2, 
-                img_url: 'https://www.stanleytools.com/NA/product/images/3000x3000x96/15-334/15-334_1.jpg', 
-                daily_cost: 10, 
-                weekly_cost: 40,
-                owner: 'EricEstrada37', 
-                city: 'Los Angeles',
-                description: 'Stanley 15 inch handsaw with wooden handle.',
-                rental_start: '2020-04-10', 
-                rental_end: '2020-04-15'
-            }, 
-            {
-                id: 32,
-                item_name: "30lb Dumbbells", 
-                category: 3, 
-                img_url: "https://ak1.ostkcdn.com/images/products/6075645/CAP-Barbell-30-lb-Pair-of-Hex-Dumbbells-Set-of-2-68983a95-70b4-42ec-8504-ec8629f15a7a.jpg",
-                daily_cost: 8, 
-                weekly_cost: 35,
-                owner: 'CharlieFrench24', 
-                city: 'Los Angeles',
-                description: 'Two 30 pound dumbbells.',
-                rental_start: '2020-02-06', 
-                rental_end: '2020-01-09'
-            }, 
-            {
-                id: 33,
-                item_name: "Fixed Gear Bike", 
-                category: 4, 
-                img_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Moyer_Cycles_I.jpg', 
-                daily_cost: 30, 
-                weekly_cost: 150, 
-                owner: 'MichelleBlack4', 
-                city: 'Los Angeles',
-                description: 'Blue fixed gear bike.',
-                rental_start: '2020-01-01', 
-                rental_end: '2020-01-05'
-            }
-        ], 
-        listed_items: [
-          {
-            id: 1,
-            item_name: "Kayak", 
-            catgory: 4, 
-            img_url: "https://oceankayak.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/11/1/1103997_primary/1103997_primary.jpg", 
-            daily_cost: 50, 
-            weekly_cost: 250, 
-            owner: 'JohnSmith1', 
-            city: 'Los Angeles',
-            description: 'One two-person kayak. Comes with paddle.'
-        }, 
-        {
-            id: 2,
-            item_name: "Nikon DSLR Camera", 
-            catgory: 5, 
-            img_url: "https://www.bhphotovideo.com/images/images2500x2500/nikon_d750_dslr_camera_with_1082604.jpg", 
-            daily_cost: 40, 
-            weekly_cost: 120, 
-            owner: 'JohnSmith1', 
-            city: 'Los Angeles', 
-            description: 'One Nikon DSLR Camera with strap and bag.'
-        }
-        ]
-      }, 
+      user: {}, 
       items: items, 
+      users: users,
       searchResults: []
     }
   }
@@ -105,16 +34,77 @@ class App extends React.Component {
     event.preventDefault(); 
     const  email  = event.target.email.value
     const  password = event.target.password.value
-    // console.log(email, password)
+
+    const users = this.state.users; 
+
+    users.map(user => {
+      if (user.email == email && user.password == password) {
+        this.setState({
+          isLoggedIn: true, 
+          user: user
+        }); 
+        this.props.history.push('/search');
+      } else {
+        alert('username and password are incorrect')
+      }; 
+    })
+
+    /*
     if (email === 'johnsmith@gmail.com' || password === 'smithjohn11') {
       this.setState({
         isLoggedIn: true, 
         // items: items
-      }); 
+    }); 
       this.props.history.push('/search')
     } else {
       alert('Oops! Username and password are incorrect')
-    }
+    } */
+  }
+
+  // signup handler
+
+  handleSignup = (event) => {
+    event.preventDefault(); 
+    const email = event.target.email.value; 
+    const password = event.target.password.value; 
+    const newUser = {
+      id: 2,
+      name: "", 
+      email: email,
+      username: "", 
+      password: password,
+      city: "", 
+      profile_img: "",
+      rental_history: [], 
+      listed_items: []
+    }; 
+    const updatedUsers = this.state.users; 
+    updatedUsers.push(newUser)
+    this.setState({
+      user: newUser,
+      isLoggedIn: true, 
+      users: updatedUsers
+    }); 
+    this.props.history.push('/createprofile'); 
+  }
+
+  // create profile handler
+
+  handleCreateProfile = (event) => {
+    event.preventDefault(); 
+    const name = event.target.name.value; 
+    const username = event.target.username.value;
+    const city = event.target.city.value; 
+    const updatedUser = this.state.user; 
+    updatedUser.name = name; 
+    updatedUser.username = username; 
+    updatedUser.city = city;
+
+    this.setState({
+      user: updatedUser
+    }); 
+    this.props.history.push('/search')
+
   }
 
   // logout handler
@@ -122,7 +112,8 @@ class App extends React.Component {
   handleLogout = (event) => {
     event.preventDefault();
     this.setState({
-      isLoggedIn: false
+      isLoggedIn: false, 
+      user: {}
     }); 
     this.props.history.push('/')
   }
@@ -199,7 +190,6 @@ class App extends React.Component {
       description: description
     }; 
 
-    // const updatedUser = this.state.user.listed_items.unshift(newItem); 
     const updatedUser = this.state.user; 
     updatedUser.listed_items.unshift(newItem)
 
@@ -239,8 +229,12 @@ class App extends React.Component {
 
     // console.log(name, city, password)
 
+    const updatedUsers = this.state.users; 
+    updatedUsers.push(updatedUser)
+
     this.setState({
-      user: updatedUser
+      user: updatedUser, 
+      users: updatedUsers
     }); 
 
     this.props.history.push('/profile')
@@ -273,7 +267,6 @@ class App extends React.Component {
   } 
 
   render() {
-    console.log(this.state.user)
     return (
       <div className="App">
         <Route exact path="/"
@@ -284,12 +277,14 @@ class App extends React.Component {
         <Route path="/signup"
         render={(props) => (
           <Signup {...props} 
-          isLoggedIn={this.state.isLoggedIn}/>
+          isLoggedIn={this.state.isLoggedIn}
+          handleSignup={this.handleSignup}/>
         )} />
         <Route path="/createprofile"
         render={(props) => (
           <CreateProfile {...props} 
-          isLoggedIn={this.state.isLoggedIn} />
+          isLoggedIn={this.state.isLoggedIn}
+          handleCreateProfile={this.handleCreateProfile} />
         )} />
         <Route exact path="/search"
         render={(props) => (

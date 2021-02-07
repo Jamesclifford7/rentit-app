@@ -13,18 +13,18 @@ function CreateProfile(props) {
                 <button>Upload Image</button>
                 { /* <label>include img url</label>
                 <input type="text"></input> */ }
-                <form>
+                <form onSubmit={event => props.handleCreateProfile(event)}>
                     <label htmlFor="name">Name:</label>
                     <input id="name" type="text" /><br/>
                     <label htmlFor="username">Username:</label>
                     <input id="username" type="text" /><br/>
                     <label htmlFor="city">City:</label>
                     <select id="city">
-                        <option value="la">Los Angeles</option>
-                        <option value="ny">New York</option>
-                        <option value="chicago">Chicago</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="New York">New York</option>
+                        <option value="Chicago">Chicago</option>
                     </select><br/>
-                    <button>Create</button>
+                    <button type="submit">Create</button>
                 </form>
             </div>
             </main>
