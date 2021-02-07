@@ -29,8 +29,8 @@ const user = [
                 item_name: "Kayak", 
                 catgory: 4, 
                 img_url: "https://oceankayak.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/11/1/1103997_primary/1103997_primary.jpg", 
-                daily_cost: 50, 
-                weekly_cost: 250, 
+                daily_cost: 40, 
+                weekly_cost: 240, 
                 owner: 'JohnSmith1', 
                 city: 'Los Angeles',
                 description: 'One two-person kayak. Comes with paddle.'
@@ -40,8 +40,8 @@ const user = [
                 item_name: "Nikon DSLR Camera", 
                 catgory: 5, 
                 img_url: "https://www.bhphotovideo.com/images/images2500x2500/nikon_d750_dslr_camera_with_1082604.jpg", 
-                daily_cost: 40, 
-                weekly_cost: 120, 
+                daily_cost: 25, 
+                weekly_cost: 140, 
                 owner: 'JohnSmith1', 
                 city: 'Los Angeles', 
                 description: 'One Nikon DSLR Camera with strap and bag.'
@@ -112,7 +112,7 @@ const items = [
         category: 4, 
         img_url: "https://images-na.ssl-images-amazon.com/images/I/71DPerT9EKL._AC_SL1500_.jpg", 
         daily_cost: 25, 
-        weekly_cost: 80, 
+        weekly_cost: 120, 
         owner: 'MichelleBlack4', 
         city: 'Los Angeles', 
         description: 'Tent that comfortably fits two people. Great for camping!'
@@ -134,7 +134,7 @@ const items = [
         category: 1, 
         img_url: "https://www.greenworkstools.com/media/catalog/product/cache/bb52ad023e98f302afaaf563d47e6ba9/1/5/1500psi_pw.png", 
         daily_cost: 25, 
-        weekly_cost: 80, 
+        weekly_cost: 120, 
         owner: 'EdHoward83', 
         city: 'New York', 
         description: 'One power washer for outdoor cleaning.'
@@ -156,7 +156,7 @@ const items = [
         category: 3, 
         img_url: "https://cdn11.bigcommerce.com/s-r2fl439k1s/images/stencil/1280x1280/products/234/788/HKB-45-Hammertone-Kettle-Bell-45lbs-Kettlebell__33453.1505411755.jpg?c=2", 
         daily_cost: 8, 
-        weekly_cost: 30, 
+        weekly_cost: 45, 
         owner: 'KeithJefferson23', 
         city: 'Chicago', 
         description: 'One 45 pound kettlebell for rent.'
@@ -167,7 +167,7 @@ const items = [
         category: 4, 
         img_url: "https://upload.wikimedia.org/wikipedia/commons/4/41/Left_side_of_Flying_Pigeon.jpg", 
         daily_cost: 20, 
-        weekly_cost: 180, 
+        weekly_cost: 110, 
         owner: 'KeithJefferson23', 
         city: 'Chicago', 
         description: 'One black bicycle with basket; great for exploring the city.'
@@ -178,7 +178,7 @@ const items = [
         category: 5, 
         img_url: "https://cdn.mos.cms.futurecdn.net/UrVA3SAQX2pKgDMoFyH7wY.jpg",
         daily_cost: 15, 
-        weekly_cost: 120, 
+        weekly_cost: 80, 
         owner: 'AngelaMack12', 
         city: 'Los Angeles', 
         description: 'Taylor acoustic guitar.'
@@ -189,7 +189,7 @@ const items = [
         category: 1, 
         img_url: "https://images.homedepot-static.com/productImages/190fb8b6-8e6f-4a76-abbe-6db5158306c6/svn/eureka-upright-vacuums-neu180-e1_600.jpg", 
         daily_cost: 10, 
-        weekly_cost: 80, 
+        weekly_cost: 50, 
         owner: 'AngelaMack12', 
         city: 'Los Angeles', 
         description: 'Vacuum for quick indoor cleaning.'
@@ -211,7 +211,7 @@ const items = [
         category: 3, 
         img_url: "https://www.ironcompany.com/media/mf_webp/jpg/media/catalog/product/cache/6f1a31152d922b0fc4fa1becd54d81bb/l/e/legend-3906-comptetition-bench-press.webp", 
         daily_cost: 30, 
-        weekly_cost: 120, 
+        weekly_cost: 180, 
         owner: 'NickHolloway19', 
         city: 'New York', 
         description: 'Full bench press setup with bench, bar, and weights.'
@@ -222,7 +222,7 @@ const items = [
         category: 4, 
         img_url: "https://cdn11.bigcommerce.com/s-c9gaghhv/images/stencil/1920x1440/products/3108/8071/22611620LYB_MAIN_Coyote85_Web_KL2020__46792.1582910015.jpg?c=2", 
         daily_cost: 20, 
-        weekly_cost: 110, 
+        weekly_cost: 115, 
         owner: 'LanaSchultz70', 
         city: 'Chicago', 
         description: 'Backpack for trekking, camping, and/or backpacking.'
@@ -265,8 +265,8 @@ const items = [
         item_name: "Basketball Hoop", 
         category: 3, 
         img_url: "https://www.competitiveedgeproducts.com/assets/images/1531_1_highres.jpg", 
-        daily_cost: 60, 
-        weekly_cost: 200, 
+        daily_cost: 40, 
+        weekly_cost: 250, 
         owner: 'EricEstrada37', 
         city: 'Los Angeles', 
         description: 'Full size basketball hoop.'
@@ -276,8 +276,8 @@ const items = [
         item_name: "Telescope", 
         category: 5, 
         img_url: "https://media.wired.com/photos/5e964499845a6c00080f0f17/master/w_1600%2Cc_limit/Gear-22460_StarSense_Explorer_DX_102_06.jpg", 
-        daily_cost: 70, 
-        weekly_cost: 220, 
+        daily_cost: 50, 
+        weekly_cost: 300, 
         owner: 'LukeMarsh50', 
         city: 'New York', 
         description: 'Observe stars and other objects in the night sky.'
@@ -287,7 +287,7 @@ const items = [
         item_name: "Blender", 
         category: 1, 
         img_url: "https://cdn.shopify.com/s/files/1/2182/0257/products/TB_Black_WS_eba15545-6428-4e5c-a353-0aaada892c61_1200x1200.png?v=1569368000", 
-        daily_cost: 15, 
+        daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'LukeMarsh50', 
         city: 'New York', 
@@ -298,8 +298,8 @@ const items = [
         item_name: "3 Piece Wrench Set", 
         category: 2, 
         img_url: "https://shop.harborfreight.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/7/47099_W3.jpg", 
-        daily_cost: 12, 
-        weekly_cost: 40, 
+        daily_cost: 10, 
+        weekly_cost: 50, 
         owner: 'ChristineSteele84', 
         city: 'Chicago', 
         description: '6inch, 8inch, and 10inch wrench set.'
@@ -310,7 +310,7 @@ const items = [
         category: 3, 
         img_url: "https://shop.slugger.com/media/catalog/product/cache/40/image/1800x/040ec09b1e35df139433887a97daa66f/9/1/9111f5a8905d47e7da8f1eaf62c826668e494f89_WTLW3AMIXA16_0_GENUINE_S3X_MIX_NAT_Front_2019.jpg", 
         daily_cost: 10, 
-        weekly_cost: 35, 
+        weekly_cost: 40, 
         owner: 'ChristineSteele84', 
         city: 'Chicago', 
         description: 'One Louisville Slugger.'
@@ -321,7 +321,7 @@ const items = [
         category: 5, 
         img_url: "https://www.backscatter.com/ITEM_IMAGES/gp-chdhe_1.jpg?resizeid=6&resizeh=600&resizew=600", 
         daily_cost: 20, 
-        weekly_cost: 100, 
+        weekly_cost: 120, 
         owner: 'GregoryDaniels96', 
         city: 'Los Angeles', 
         description: 'Great for filming action sports... surfing, snowboarding, skiing, etc.'
@@ -343,7 +343,7 @@ const items = [
         category: 2, 
         img_url: "https://assets.leevalley.com/Size4/10029/60K2302-mini-needle-nose-pliers-with-tip-cutters-f-55.jpg", 
         daily_cost: 8, 
-        weekly_cost: 30, 
+        weekly_cost: 35, 
         owner: 'TerryPearson87', 
         city: 'New York', 
         description: 'Needle-nose pliers for gripping small objects.'
@@ -353,8 +353,8 @@ const items = [
         item_name: "Golf Clubs", 
         category: 3, 
         img_url: "https://res-4.cloudinary.com/s247/image/upload/c_pad,dpr_1.0,f_auto,h_800,q_auto,w_800/media/catalog/product/a/c/accubar_12_pc_5_1__1.png", 
-        daily_cost: 20, 
-        weekly_cost: 100, 
+        daily_cost: 15, 
+        weekly_cost: 90, 
         owner: 'TerryPearson87', 
         city: 'New York', 
         description: 'Set of beginner golf clubs.'
@@ -365,7 +365,7 @@ const items = [
         category: 1, 
         img_url: "https://pyxis.nymag.com/v1/imgs/884/019/0c073f657b6831aeb7edb4381d1be3ce0a.2x.rsquare.w600.jpg", 
         daily_cost: 10, 
-        weekly_cost: 40, 
+        weekly_cost: 50, 
         owner: 'LanaSchultz70', 
         city: 'Chicago', 
         description: 'One Black and Decker clothes iron.'
@@ -387,7 +387,7 @@ const items = [
         category: 5, 
         img_url: "https://sc04.alicdn.com/kf/H7852824ff18e4b7988931042ce99fb87W.jpg", 
         daily_cost: 12, 
-        weekly_cost: 45, 
+        weekly_cost: 60, 
         owner: 'ThelmaShaw21', 
         city: 'New York', 
         description: 'Adjustable wooden painting easel.'

@@ -51,13 +51,31 @@ class Checkout extends React.Component {
         })
 
         const itemDailyCost = checkoutItem.daily_cost
+        const itemWeeklyCost = checkoutItem.weekly_cost
+
+        if (difference % 7 === 0) {
+            // calculating weekly cost (if user chooses to rent by week)
+            const weeklyDifference = difference / 7;
+
+            const totalRentalCost = weeklyDifference * itemWeeklyCost; 
+            this.setState({
+                totalCost: totalRentalCost
+            }); 
+        } else {
+            // calculating daily cost
+            const totalRentalCost = itemDailyCost * difference; 
+            this.setState({
+                totalCost: totalRentalCost
+            })
+        }
+        
 
         // multiply daily cost by number of days to get total cost
-        const totalRentalCost = itemDailyCost * difference
+        /* const totalRentalCost = itemDailyCost * difference
         
         this.setState({
             totalCost: totalRentalCost
-        })
+        }) */
 
     } 
 

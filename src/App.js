@@ -30,7 +30,7 @@ class App extends React.Component {
         profile_img: "",
         rental_history: [
             {
-                id: 1,
+                id: 31,
                 item_name: "Saw", 
                 category: 2, 
                 img_url: 'https://www.stanleytools.com/NA/product/images/3000x3000x96/15-334/15-334_1.jpg', 
@@ -43,7 +43,7 @@ class App extends React.Component {
                 rental_end: '2020-04-15'
             }, 
             {
-                id: 2,
+                id: 32,
                 item_name: "30lb Dumbbells", 
                 category: 3, 
                 img_url: "https://ak1.ostkcdn.com/images/products/6075645/CAP-Barbell-30-lb-Pair-of-Hex-Dumbbells-Set-of-2-68983a95-70b4-42ec-8504-ec8629f15a7a.jpg",
@@ -56,7 +56,7 @@ class App extends React.Component {
                 rental_end: '2020-01-09'
             }, 
             {
-                id: 3,
+                id: 33,
                 item_name: "Fixed Gear Bike", 
                 category: 4, 
                 img_url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Moyer_Cycles_I.jpg', 
@@ -177,8 +177,103 @@ class App extends React.Component {
     this.props.history.push(`/confirmation/${itemId}`)
   }
 
+  // list an item handler
+
+  handleListItem = (event) => {
+    event.preventDefault(); 
+    const itemname = event.target.itemname.value; 
+    const category = parseInt(event.target.itemcategory.value); // remember to parseInt()
+    const dailycost = parseInt(event.target.dailycost.value); 
+    const weeklycost = parseInt(event.target.weeklycost.value);
+    const description = event.target.description.value;
+    
+    const newItem = {
+      id: 3,
+      item_name: itemname, 
+      catgory: category, 
+      img_url: "", 
+      daily_cost: dailycost, 
+      weekly_cost: weeklycost, 
+      owner: this.state.user.username, 
+      city: this.state.user.city, 
+      description: description
+    }; 
+
+    // const updatedUser = this.state.user.listed_items.unshift(newItem); 
+    const updatedUser = this.state.user; 
+    updatedUser.listed_items.unshift(newItem)
+
+    this.setState({
+      user: updatedUser
+    }); 
+    this.props.history.push('/profile')
+  }
+
+  // edit profile handler
+
+  handleEditProfile = (event) => {
+    event.preventDefault(); 
+    const name = event.target.name.value; 
+    const password = event.target.password.value;
+    const city = event.target.city.value; 
+    
+    const updatedUser = this.state.user;
+
+    if (!name) {
+      updatedUser.name = this.state.user.name
+    } else {
+      updatedUser.name = name
+    }; 
+
+    if (!password) {
+      updatedUser.password = this.state.user.password
+    } else {
+      updatedUser.password = password
+    }; 
+
+    if (!city) {
+      updatedUser.city = this.state.user.city
+    } else {
+      updatedUser.city = city
+    }; 
+
+    // console.log(name, city, password)
+
+    this.setState({
+      user: updatedUser
+    }); 
+
+    this.props.history.push('/profile')
+
+  } 
+  
+  handleDeleteItem = (event) => {
+    event.preventDefault(); 
+    const itemId = parseInt(event.target.parentNode.id)
+    const currentListedItems = this.state.user.listed_items; 
+    
+
+    const itemToDelete = currentListedItems.find(item => {
+      if (item.id == itemId) {
+        return item
+      }
+    }); 
+
+    const itemToDeleteIndex = currentListedItems.indexOf(itemToDelete)
+
+    const updatedUser = this.state.user; 
+
+    updatedUser.listed_items.splice(itemToDeleteIndex, 1); 
+
+    this.setState({
+      user: updatedUser
+    })
+
+    // const updatedListItems = currentListedItems.splice()
+  } 
+
   render() {
-    // console.log(this.state.searchResults)
+    console.log(this.state.user)
     return (
       <div className="App">
         <Route exact path="/"
@@ -248,7 +343,9 @@ class App extends React.Component {
           <EditProfile {...props} 
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
-          user={this.state.user} />
+          user={this.state.user}
+          handleEditProfile={this.handleEditProfile}
+          handleDeleteItem={this.handleDeleteItem} />
         )}/>
         <Route path="/login"
         render={(props) => (
@@ -260,7 +357,8 @@ class App extends React.Component {
         render={(props) => (
           <ListItem {...props} 
           isLoggedIn={this.state.isLoggedIn}
-          handleLogout={this.handleLogout} />
+          handleLogout={this.handleLogout}
+          handleListItem={this.handleListItem} />
         )}/>
       </div>
     )
