@@ -42,7 +42,7 @@ function SearchResults(props) {
                                 </div>
                             </div>
                         })
-                        : <div>
+                        : <div className="no-results">
                             <h3>No items found</h3>
                         </div>
                     }

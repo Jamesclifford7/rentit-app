@@ -5,25 +5,95 @@ header {
     border-bottom: solid;
     margin: 0;
     background-color: blanchedalmond;
+    position: relative;
 }
   
 header h2 {
     display: inline-block;
     margin: 0 auto;
     margin-left: 20px;
-    width: 20%;
-    padding: 20px; 
+    width: 10%;
+    padding: 18px; 
 }
 
 header nav {
     margin: 0 auto;
-    width: 25%;
+    display: inline-block;
+    width: 84%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*
+header nav {
+    margin: 0 auto;
+    /*width: 25%; 
     display: inline;
     float: right;
     padding: 8px;
-}
+    vertical-align: middle;
+} */
+
+header nav ul {
+    text-align: right;
+} 
 
 header nav ul li {
     display: inline;
-    margin-right: 50px;
+    margin-right: 50px; 
+}
+
+/* dropdown */
+
+.dropdown-container {
+    border: solid;
+    width: 10%;
+    position: absolute; 
+    background-color: blanchedalmond;
+    /*margin-right: 300px; */
+    margin-left: 900px; 
+    text-align: center;
+}
+
+/* phone media query */ 
+
+@media all and (max-width: 450px) {
+
+    header {
+        text-align: center;
+    }
+
+   header h2 {
+       display: block;
+       margin-left: 0;
+       /* width: 90%; */
+       width: auto;
+       padding-bottom: 0;
+       /* margin-right: 40px; */
+       margin: 0 auto;
+       border-bottom: 0;
+   } 
+
+   header nav {
+       float: none;
+       display: block;
+       padding: 3px;
+       border-bottom: solid;
+   }
+
+   header nav ul {
+       padding: 0;
+   }
+
+   header nav ul li {
+        display: block; 
+        margin-right: 0px;
+        padding: 5px;
+   }
+
+   header nav {
+       background-color: blanchedalmond;
+   }
+
 }

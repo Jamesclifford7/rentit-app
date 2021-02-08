@@ -20,7 +20,7 @@ function Confirmation(props) {
                                         <p>{item.rental_start} to {item.rental_end}</p>
                                         <h3>Pickup/Dropoff Location</h3>
                                         <p>1000 Hill St. <br/> {item.city}, {item.city == 'Los Angeles' ? 'CA' : item.city == 'New York' ? 'NY' : item.city == 'Chicago' ? 'IL' : null}</p>
-                                        <Link to='/search'>Back to Search</Link>
+                                        <button><Link to='/search'>Back to Search</Link></button>
                                     </div>
                         }
                     })

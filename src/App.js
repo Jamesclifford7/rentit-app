@@ -28,12 +28,12 @@ class App extends React.Component {
     }
   }
 
-  // login handler
+  // login handler (GET request to retrieve/find the user)
 
   handleLogin = (event) => {
     event.preventDefault(); 
-    const  email  = event.target.email.value
-    const  password = event.target.password.value
+    const email  = event.target.email.value;
+    const password = event.target.password.value;
 
     const users = this.state.users; 
 
@@ -61,7 +61,7 @@ class App extends React.Component {
     } */
   }
 
-  // signup handler
+  // signup handler (POST request to add user to database)
 
   handleSignup = (event) => {
     event.preventDefault(); 
@@ -88,7 +88,7 @@ class App extends React.Component {
     this.props.history.push('/createprofile'); 
   }
 
-  // create profile handler
+  // create profile handler (PATCH request to update existing user in database)
 
   handleCreateProfile = (event) => {
     event.preventDefault(); 
@@ -107,7 +107,7 @@ class App extends React.Component {
 
   }
 
-  // logout handler
+  // logout handler 
 
   handleLogout = (event) => {
     event.preventDefault();
@@ -118,7 +118,7 @@ class App extends React.Component {
     this.props.history.push('/')
   }
 
-  // search handler
+  // search handler (GET request to retrieve items from databases)
 
   handleSearch = (event) => {
     event.preventDefault(); 
@@ -144,7 +144,7 @@ class App extends React.Component {
     this.props.history.push('/searchresults'); 
   }
 
-  // checkout handler
+  // checkout handler (PATCH request to update user's rental history)
 
   handleCheckout = (event) => {
     event.preventDefault(); 
@@ -168,7 +168,7 @@ class App extends React.Component {
     this.props.history.push(`/confirmation/${itemId}`)
   }
 
-  // list an item handler
+  // list an item handler (PATCH request to update user's listed items)
 
   handleListItem = (event) => {
     event.preventDefault(); 
@@ -199,7 +199,7 @@ class App extends React.Component {
     this.props.history.push('/profile')
   }
 
-  // edit profile handler
+  // edit profile handler (PATCH request to update user info)
 
   handleEditProfile = (event) => {
     event.preventDefault(); 
@@ -240,13 +240,14 @@ class App extends React.Component {
     this.props.history.push('/profile')
 
   } 
+
+  // delete item handler (PATCH request to update user's listed items)
   
   handleDeleteItem = (event) => {
     event.preventDefault(); 
     const itemId = parseInt(event.target.parentNode.id)
     const currentListedItems = this.state.user.listed_items; 
     
-
     const itemToDelete = currentListedItems.find(item => {
       if (item.id == itemId) {
         return item
@@ -267,6 +268,7 @@ class App extends React.Component {
   } 
 
   render() {
+    console.log(this.state.searchResults)
     return (
       <div className="App">
         <Route exact path="/"

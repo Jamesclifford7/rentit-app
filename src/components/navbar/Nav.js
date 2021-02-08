@@ -33,9 +33,9 @@ class Nav extends React.Component {
                             {
                                 this.state.showMenu
                                 ? <div className="dropdown-container">
-                                    <Link to="/profile">Your Profile</Link>
-                                    <Link to="/search">Search</Link>
-                                    <Link to="/listitem">List</Link>
+                                    <Link to="/profile">Your Profile</Link><br/>
+                                    <Link to="/search">Search</Link><br/>
+                                    <Link to="/listitem">List</Link><br/>
                                     <button onClick={event => this.props.handleLogout(event)}>Logout</button>
                                 </div>
                                 : null

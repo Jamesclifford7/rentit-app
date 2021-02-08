@@ -35,3 +35,7 @@
     margin: 0 auto;
     padding: 5px;
 }
+
+.results .no-results {
+    padding-bottom: 400px;
+}

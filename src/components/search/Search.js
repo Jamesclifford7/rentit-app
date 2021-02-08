@@ -24,7 +24,7 @@ function Search(props) {
                         <select id="city">
                             <option value="Los Angeles">Los Angeles</option>
                             <option value="New York">New York</option>
-                            <option value="chicago">Chicago</option>
+                            <option value="Chicago">Chicago</option>
                         </select>
                         <button type="submit">Find</button>
                     </form>

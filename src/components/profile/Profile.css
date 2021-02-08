@@ -31,8 +31,15 @@
     margin-left: 30px;
 }
 
+.profile-left h2 {
+    border-bottom: solid;
+    margin: 0;
+    padding: 20px;
+}
+
 .profile-left .listing {
-    border-top: solid; 
+    border-bottom: solid; 
+    border-top: none;
     padding: 20px;
 }
 

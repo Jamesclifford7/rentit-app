@@ -101,3 +101,32 @@ footer span {
     display: block;
     padding: 10px;
 }
+
+/* phone media query */ 
+
+@media all and (max-width: 450px) {
+    main .landing-container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+   }
+
+   main .about-container {
+       border-bottom: solid;
+   }
+
+   main .demo-container {
+       flex-direction: column;
+       padding: 0;
+   }
+
+   main .demo-container .demo-item {
+       width: auto;
+       padding-top: 10px;
+       padding-bottom: 50px;
+       border-top: none;
+   }
+
+   main .signup-container .signup-right {
+       display: none;
+   }
+}

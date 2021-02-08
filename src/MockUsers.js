@@ -2,7 +2,7 @@ const users = [{
     id: 1,
     name: "John Smith", 
     email: "johnsmith@gmail.com",
-    username: "johnsmith1", 
+    username: "JohnSmith1", 
     password: "smithjohn11",
     city: "Los Angeles", 
     profile_img: "",
