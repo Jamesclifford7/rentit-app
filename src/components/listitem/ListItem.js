@@ -9,7 +9,7 @@ function ListItem(props) {
             <main>
                 <div className="list-item">
                     <h1>List an Item to Rent</h1>
-                    <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="200" width="auto" /><br/>
+                    <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" alt="item placeholder" height="200" width="auto" /><br/>
                     <button>Upload Image</button>
                     <form onSubmit={event => props.handleListItem(event)}>
                         <label htmlFor="itemname">Item Name:</label>

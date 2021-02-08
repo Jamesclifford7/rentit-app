@@ -20,7 +20,7 @@ class Item extends React.Component {
                             if (item.id == this.props.match.params.id) {
                                 return <div className="item" key={idx}>
                                             <h1>{item.item_name}</h1>
-                                            <img src={item.img_url} height="500" width="auto" />
+                                            <img src={item.img_url} height="500" width="auto" alt="rental item" />
                                             <h3>Owner: {item.owner}</h3>
                                             <h3>{item.city}</h3>
                                             <p>Daily Cost: ${item.daily_cost}</p>

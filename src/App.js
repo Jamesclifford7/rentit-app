@@ -38,7 +38,7 @@ class App extends React.Component {
     const users = this.state.users; 
 
     users.map(user => {
-      if (user.email == email && user.password == password) {
+      if (user.email === email && user.password === password) {
         this.setState({
           isLoggedIn: true, 
           user: user
@@ -134,7 +134,7 @@ class App extends React.Component {
       const lowerCaseSearchTerm = searchTerm.toLowerCase(); 
       if (lowerCaseName.includes(lowerCaseSearchTerm) && (item.category == category) && (item.city == city)) {
         return item
-      }
+      }; 
     })
 
     // console.log(results)
@@ -153,19 +153,33 @@ class App extends React.Component {
     const ccnumber = event.target.ccnumber.value
     const expirationdate = event.target.expiration.value
     const securitycode = event.target.securitycode.value
-    const itemId = event.target.itemid.value
-
+    const itemId = parseInt(event.target.itemid.value);
+    
     const checkoutItem = this.state.searchResults.find(item => {
-      return item.id == itemId
-    })
+      return item.id === itemId
+    }); 
+    console.log(this.state.searchResults, checkoutItem, itemId)
     const updatedUser = this.state.user
     checkoutItem['rental_start'] = pickupdate; 
     checkoutItem['rental_end'] = returndate;
+    
+    if (ccnumber == '4012888888881881' && expirationdate == '08/30' && securitycode == '342') {
+      updatedUser.rental_history.unshift(checkoutItem); 
+      this.setState({
+        user: updatedUser
+      }); 
+      this.props.history.push(`/confirmation/${itemId}`)
+    } else {
+      alert('please enter credit card information')
+    } 
+
+    /*
     updatedUser.rental_history.unshift(checkoutItem); 
     this.setState({
       user: updatedUser
     }); 
     this.props.history.push(`/confirmation/${itemId}`)
+    */
   }
 
   // list an item handler (PATCH request to update user's listed items)
@@ -249,7 +263,7 @@ class App extends React.Component {
     const currentListedItems = this.state.user.listed_items; 
     
     const itemToDelete = currentListedItems.find(item => {
-      if (item.id == itemId) {
+      if (item.id === itemId) {
         return item
       }
     }); 
@@ -268,7 +282,6 @@ class App extends React.Component {
   } 
 
   render() {
-    console.log(this.state.searchResults)
     return (
       <div className="App">
         <Route exact path="/"

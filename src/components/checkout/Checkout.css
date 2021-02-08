@@ -20,3 +20,17 @@
     margin-top: 10px; */
     margin: 10px;
 } 
+
+.checkout .creditcard {
+    padding: 20px;
+}
+
+.checkout .creditcard h5, .checkout .creditcard p {
+    display: inline-block;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.checkout .creditcard p {
+    margin-left: 3px;
+}

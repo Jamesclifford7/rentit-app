@@ -90,7 +90,7 @@ class Checkout extends React.Component {
                                 return <div className="checkout" key={idx}>
                                             <h1>Checkout</h1>
                                             <h3>You Are About to Rent the Following Item:</h3>
-                                            <img src={item.img_url} height="300" width="auto" />
+                                            <img src={item.img_url} height="300" width="auto" alt="rental item"/>
                                             <h2>{item.item_name}</h2>
                                             <h3>From: {item.owner}</h3>
                                             <h3>{item.city}</h3>
@@ -109,8 +109,11 @@ class Checkout extends React.Component {
                                                 <h3>Total Cost: ${this.state.totalCost}</h3>
                                                 <fieldset className="creditcard">
                                                     <legend><h2>Enter Credit Card Info</h2></legend>
+                                                    <h5>Demo Card Number:</h5><p> 4012888888881881</p><br/>
+                                                    <h5>Demo Expiration:</h5><p> 08/30</p><br/>
+                                                    <h5>Demo Security:</h5><p> 342</p><br/>
                                                     <label htmlFor="ccnumber">Credit Card Number:</label>
-                                                    <input id="ccnumber" type="text" /><br/>
+                                                    <input id="ccnumber" type="tel" /><br/>
                                                     <label htmlFor="expiration">Expiration Date:</label>
                                                     <input id="expiration" type="text" /><br/>
                                                     <label htmlFor="securitycode">Security Code:</label>

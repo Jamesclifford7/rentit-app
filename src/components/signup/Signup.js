@@ -1,6 +1,5 @@
 import React from 'react'
 import Nav from '../navbar/Nav'
-import { Link } from 'react-router-dom'
 import './Signup.css'
 
 function Signup(props) {
