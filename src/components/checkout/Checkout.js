@@ -47,7 +47,7 @@ class Checkout extends React.Component {
 
         // retrieve the daily cost of the item
         const checkoutItem = this.props.results.find(item => {
-            return item.id == this.props.match.params.id
+            return item.id === parseInt(this.props.match.params.id)
         })
 
         const itemDailyCost = checkoutItem.daily_cost
@@ -80,13 +80,14 @@ class Checkout extends React.Component {
     } 
 
     render() {
+        console.log(this.props.match.params.id)
         return (
             <>
                 <Nav isLoggedIn={this.props.isLoggedIn} handleLogout={this.props.handleLogout} />
                 <main>
                     {
                         this.props.results.map((item, idx) => {
-                            if (item.id == this.props.match.params.id) {
+                            if (item.id === parseInt(this.props.match.params.id)) {
                                 return <div className="checkout" key={idx}>
                                             <h1>Checkout</h1>
                                             <h3>You Are About to Rent the Following Item:</h3>
@@ -122,6 +123,8 @@ class Checkout extends React.Component {
                                                 <button type="submit">Checkout</button>
                                             </form>
                                         </div>
+                            } else {
+                                return null
                             }
                         })
                     }

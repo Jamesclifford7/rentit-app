@@ -37,7 +37,7 @@ class App extends React.Component {
 
     const users = this.state.users; 
 
-    users.map(user => {
+    users.forEach(user => {
       if (user.email === email && user.password === password) {
         this.setState({
           isLoggedIn: true, 
@@ -123,18 +123,19 @@ class App extends React.Component {
   handleSearch = (event) => {
     event.preventDefault(); 
     const searchTerm = event.target.search.value
-    const category = event.target.category.value
+    const category = parseInt(event.target.category.value)
     const city = event.target.city.value
-    // console.log(searchTerm, category, city); 
     
     let allItems = this.state.items
 
     const results = allItems.filter(item => {
       const lowerCaseName = item.item_name.toLowerCase(); 
       const lowerCaseSearchTerm = searchTerm.toLowerCase(); 
-      if (lowerCaseName.includes(lowerCaseSearchTerm) && (item.category == category) && (item.city == city)) {
+      if (lowerCaseName.includes(lowerCaseSearchTerm) && (item.category === category) && (item.city === city)) {
         return item
-      }; 
+      } else {
+        return null
+      }
     })
 
     // console.log(results)
@@ -163,7 +164,7 @@ class App extends React.Component {
     checkoutItem['rental_start'] = pickupdate; 
     checkoutItem['rental_end'] = returndate;
     
-    if (ccnumber == '4012888888881881' && expirationdate == '08/30' && securitycode == '342') {
+    if (ccnumber === '4012888888881881' && expirationdate === '08/30' && securitycode === '342') {
       updatedUser.rental_history.unshift(checkoutItem); 
       this.setState({
         user: updatedUser
@@ -265,6 +266,8 @@ class App extends React.Component {
     const itemToDelete = currentListedItems.find(item => {
       if (item.id === itemId) {
         return item
+      } else {
+        return null
       }
     }); 
 

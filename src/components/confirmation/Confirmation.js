@@ -10,7 +10,7 @@ function Confirmation(props) {
             <main>
                 {
                     props.user.rental_history.map((item, idx) => {
-                        if (item.id == props.match.params.id) {
+                        if (item.id === parseInt(props.match.params.id)) {
                             return <div className="confirmation" key={idx}>
                                         <h1>Your Order is Confirmed!</h1>
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/1200px-Eo_circle_green_checkmark.svg.png" height="300" width="auto" alt="checkmark" />
@@ -19,9 +19,11 @@ function Confirmation(props) {
                                         <h3>Rental Period</h3>
                                         <p>{item.rental_start} to {item.rental_end}</p>
                                         <h3>Pickup/Dropoff Location</h3>
-                                        <p>1000 Hill St. <br/> {item.city}, {item.city == 'Los Angeles' ? 'CA' : item.city == 'New York' ? 'NY' : item.city == 'Chicago' ? 'IL' : null}</p>
+                                        <p>1000 Hill St. <br/> {item.city}, {item.city === 'Los Angeles' ? 'CA' : item.city === 'New York' ? 'NY' : item.city === 'Chicago' ? 'IL' : null}</p>
                                         <button><Link to='/search'>Back to Search</Link></button>
                                     </div>
+                        } else {
+                            return null
                         }
                     })
                 }

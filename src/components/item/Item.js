@@ -17,7 +17,7 @@ class Item extends React.Component {
                 <main>
                     {
                         this.props.results.map((item, idx) => {
-                            if (item.id == this.props.match.params.id) {
+                            if (item.id === parseInt(this.props.match.params.id)) {
                                 return <div className="item" key={idx}>
                                             <h1>{item.item_name}</h1>
                                             <img src={item.img_url} height="500" width="auto" alt="rental item" />
@@ -30,6 +30,8 @@ class Item extends React.Component {
                                             <Link to={`/checkout/${item.id}`}>Rent Item</Link><br />
                                             <button onClick={event => this.backToSearch(event)}>Back to Search</button>
                                         </div>
+                            } else {
+                                return null
                             }
                         })
                     }
