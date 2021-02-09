@@ -17,3 +17,8 @@
     margin-bottom: 10px;
     display: inline-block;
 } 
+
+.login-form h5, .login-form p {
+    margin: 0 auto;
+    padding: 5px;
+}

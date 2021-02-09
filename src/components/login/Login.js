@@ -14,6 +14,8 @@ function Login(props) {
                         <input type="text" id="email" /><br />
                         <label htmlFor="password">Password:</label>
                         <input type="password" id="password" /><br/>
+                        <h5>Demo Email:</h5><p>johnsmith@gmail.com</p><br/>
+                        <h5>Demo Password:</h5><p>smithjohn11</p>
                         <button type="submit">Login</button>
                     </form>
                 </div>
