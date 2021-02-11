@@ -15,11 +15,11 @@ function CreateProfile(props) {
                 <input type="text"></input> */ }
                 <form onSubmit={event => props.handleCreateProfile(event)}>
                     <label htmlFor="name">Name:</label>
-                    <input id="name" type="text" /><br/>
+                    <input id="name" type="text" required/><br/>
                     <label htmlFor="username">Username:</label>
-                    <input id="username" type="text" /><br/>
+                    <input id="username" type="text" required/><br/>
                     <label htmlFor="city">City:</label>
-                    <select id="city">
+                    <select id="city" required>
                         <option value="Los Angeles">Los Angeles</option>
                         <option value="New York">New York</option>
                         <option value="Chicago">Chicago</option>

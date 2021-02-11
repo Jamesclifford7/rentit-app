@@ -32,7 +32,8 @@ function SearchResults(props) {
                     </form>
                 </div>
                 <div className="results">
-                    {   props.results[0]
+                    { 
+                    props.results[0]
                         ? props.results.map((result, idx) => {
                             return <div className="result" key={idx}>
                                 <img src={result.img_url} height="100px" width="auto" alt="rental item search result" />
@@ -44,7 +45,7 @@ function SearchResults(props) {
                         })
                         : <div className="no-results">
                             <h3>No items found</h3>
-                        </div>
+                        </div> 
                     }
                 </div>
             </main>

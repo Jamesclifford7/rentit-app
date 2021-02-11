@@ -15,6 +15,7 @@ const users = [{
             daily_cost: 10, 
             weekly_cost: 40,
             owner: 'EricEstrada37', 
+            owner_id: 11, 
             city: 'Los Angeles',
             description: 'Stanley 15 inch handsaw with wooden handle.',
             rental_start: '2020-04-10', 
@@ -28,6 +29,7 @@ const users = [{
             daily_cost: 8, 
             weekly_cost: 35,
             owner: 'CharlieFrench24', 
+            owner_id: 2, 
             city: 'Los Angeles',
             description: 'Two 30 pound dumbbells.',
             rental_start: '2020-02-06', 
@@ -41,6 +43,7 @@ const users = [{
             daily_cost: 30, 
             weekly_cost: 150, 
             owner: 'MichelleBlack4', 
+            owner_id: 5, 
             city: 'Los Angeles',
             description: 'Blue fixed gear bike.',
             rental_start: '2020-01-01', 
@@ -49,26 +52,32 @@ const users = [{
     ], 
     listed_items: [
         {
-            id: 1,
+            id: 34,
             item_name: "Kayak", 
             catgory: 4, 
             img_url: "https://oceankayak.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/11/1/1103997_primary/1103997_primary.jpg", 
             daily_cost: 50, 
             weekly_cost: 250, 
             owner: 'JohnSmith1', 
+            owner_id: 1, 
             city: 'Los Angeles',
-            description: 'One two-person kayak. Comes with paddle.'
+            description: 'One two-person kayak. Comes with paddle.', 
+            rental_start: '', 
+            rental_end: ''
         }, 
         {
-            id: 2,
+            id: 35,
             item_name: "Nikon DSLR Camera", 
             catgory: 5, 
             img_url: "https://www.bhphotovideo.com/images/images2500x2500/nikon_d750_dslr_camera_with_1082604.jpg", 
             daily_cost: 40, 
             weekly_cost: 120, 
             owner: 'JohnSmith1', 
+            owner_id: 1,
             city: 'Los Angeles', 
-            description: 'One Nikon DSLR Camera with strap and bag.'
+            description: 'One Nikon DSLR Camera with strap and bag.', 
+            rental_start: '', 
+            rental_end: ''
         }
     ]
 }]

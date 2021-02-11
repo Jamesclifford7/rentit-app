@@ -7,8 +7,11 @@ const items = [
         daily_cost: 40, 
         weekly_cost: 180, 
         owner: 'CharlieFrench24', 
+        owner_id: 2, 
         city: 'Los Angeles', 
-        description: 'One fiberglass stand up paddle board with paddle. Great for beginners.'
+        description: 'One fiberglass stand up paddle board with paddle. Great for beginners.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 2,
@@ -18,8 +21,11 @@ const items = [
         daily_cost: 30, 
         weekly_cost: 120, 
         owner: 'ThelmaShaw21', 
+        owner_id: 3,
         city: 'New York', 
-        description: 'One Canon Rebel DSLR camera with 55mm lens. Comes with bag and strap.'
+        description: 'One Canon Rebel DSLR camera with 55mm lens. Comes with bag and strap.', 
+        rental_start: '',
+        rental_end: ''
     }, 
     {
         id: 3,
@@ -29,8 +35,11 @@ const items = [
         daily_cost: 20, 
         weekly_cost: 100, 
         owner: 'ThelmaShaw21', 
+        owner_id: 3,
         city: 'New York', 
-        description: 'Portable AC unit with remote.'
+        description: 'Portable AC unit with remote.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 4,
@@ -40,8 +49,11 @@ const items = [
         daily_cost: 5, 
         weekly_cost: 20, 
         owner: 'DuaneTorres64', 
+        owner_id: 4,
         city: 'Chicago', 
-        description: '1/4 inch flathead screwdriver with cushioned grip.'
+        description: '1/4 inch flathead screwdriver with cushioned grip.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 5,
@@ -51,8 +63,11 @@ const items = [
         daily_cost: 5, 
         weekly_cost: 20, 
         owner: 'DuaneTorres64', 
+        owner_id: 4,
         city: 'Chicago', 
-        description: 'Two 25lb dumbbells.'
+        description: 'Two 25lb dumbbells.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 6,
@@ -62,8 +77,11 @@ const items = [
         daily_cost: 25, 
         weekly_cost: 120, 
         owner: 'MichelleBlack4', 
+        owner_id: 5,
         city: 'Los Angeles', 
-        description: 'Tent that comfortably fits two people. Great for camping!'
+        description: 'Tent that comfortably fits two people. Great for camping!', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 7,
@@ -73,8 +91,11 @@ const items = [
         daily_cost: 40, 
         weekly_cost: 200, 
         owner: 'MichelleBlack4', 
+        owner_id: 5,
         city: 'Los Angeles', 
-        description: 'PA system with mixing board and stands.'
+        description: 'PA system with mixing board and stands.',
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 8,
@@ -84,8 +105,11 @@ const items = [
         daily_cost: 25, 
         weekly_cost: 120, 
         owner: 'EdHoward83', 
+        owner_id: 6,
         city: 'New York', 
-        description: 'One power washer for outdoor cleaning.'
+        description: 'One power washer for outdoor cleaning.',
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 9,
@@ -95,8 +119,11 @@ const items = [
         daily_cost: 5, 
         weekly_cost: 30, 
         owner: 'EdHoward83', 
+        owner_id: 6,
         city: 'New York', 
-        description: '16oz Stalwart hammer.'
+        description: '16oz Stalwart hammer.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 10,
@@ -106,8 +133,11 @@ const items = [
         daily_cost: 8, 
         weekly_cost: 45, 
         owner: 'KeithJefferson23', 
+        owner_id: 7,
         city: 'Chicago', 
-        description: 'One 45 pound kettlebell for rent.'
+        description: 'One 45 pound kettlebell for rent.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 11,
@@ -117,8 +147,11 @@ const items = [
         daily_cost: 20, 
         weekly_cost: 110, 
         owner: 'KeithJefferson23', 
+        owner_id: 7,
         city: 'Chicago', 
-        description: 'One black bicycle with basket; great for exploring the city.'
+        description: 'One black bicycle with basket; great for exploring the city.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 12,
@@ -128,8 +161,11 @@ const items = [
         daily_cost: 15, 
         weekly_cost: 80, 
         owner: 'AngelaMack12', 
+        owner_id: 8, 
         city: 'Los Angeles', 
-        description: 'Taylor acoustic guitar.'
+        description: 'Taylor acoustic guitar.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 13,
@@ -139,8 +175,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'AngelaMack12', 
+        owner_id: 8,
         city: 'Los Angeles', 
-        description: 'Vacuum for quick indoor cleaning.'
+        description: 'Vacuum for quick indoor cleaning.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 14,
@@ -150,8 +189,11 @@ const items = [
         daily_cost: 15, 
         weekly_cost: 90, 
         owner: 'NickHolloway19', 
+        owner_id: 9, 
         city: 'New York', 
-        description: 'Craftsman power drill.'
+        description: 'Craftsman power drill.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 15,
@@ -161,8 +203,11 @@ const items = [
         daily_cost: 30, 
         weekly_cost: 180, 
         owner: 'NickHolloway19', 
+        owner_id: 9, 
         city: 'New York', 
-        description: 'Full bench press setup with bench, bar, and weights.'
+        description: 'Full bench press setup with bench, bar, and weights.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 16,
@@ -172,8 +217,11 @@ const items = [
         daily_cost: 20, 
         weekly_cost: 115, 
         owner: 'LanaSchultz70', 
+        owner_id: 10, 
         city: 'Chicago', 
-        description: 'Backpack for trekking, camping, and/or backpacking.'
+        description: 'Backpack for trekking, camping, and/or backpacking.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 17,
@@ -183,8 +231,11 @@ const items = [
         daily_cost: 12, 
         weekly_cost: 70, 
         owner: 'LanaSchultz70', 
+        owner_id: 10,
         city: 'Chicago', 
-        description: 'Hook up your computer to this projector to watch movies or tv on a projection screen.'
+        description: 'Hook up your computer to this projector to watch movies or tv on a projection screen.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 18,
@@ -194,8 +245,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'EricEstrada37', 
+        owner_id: 11, 
         city: 'Los Angeles', 
-        description: 'One black coffee maker to boost your mornings.'
+        description: 'One black coffee maker to boost your mornings.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 19,
@@ -205,8 +259,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'EricEstrada37', 
+        owner_id: 11, 
         city: 'Los Angeles', 
-        description: 'Stanley handsaw with cushioned grip.'
+        description: 'Stanley handsaw with cushioned grip.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 20,
@@ -216,8 +273,11 @@ const items = [
         daily_cost: 40, 
         weekly_cost: 250, 
         owner: 'EricEstrada37', 
+        owner_id: 11,
         city: 'Los Angeles', 
-        description: 'Full size basketball hoop.'
+        description: 'Full size basketball hoop.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 21,
@@ -227,8 +287,11 @@ const items = [
         daily_cost: 50, 
         weekly_cost: 300, 
         owner: 'LukeMarsh50', 
+        owner_id: 12, 
         city: 'New York', 
-        description: 'Observe stars and other objects in the night sky.'
+        description: 'Observe stars and other objects in the night sky.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 22,
@@ -238,8 +301,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'LukeMarsh50', 
+        owner_id: 12, 
         city: 'New York', 
-        description: 'Great for making smoothies, milk shakes, salsas, etc.'
+        description: 'Great for making smoothies, milk shakes, salsas, etc.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 23,
@@ -249,8 +315,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'ChristineSteele84', 
+        owner_id: 13, 
         city: 'Chicago', 
-        description: '6inch, 8inch, and 10inch wrench set.'
+        description: '6inch, 8inch, and 10inch wrench set.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 24,
@@ -260,8 +329,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 40, 
         owner: 'ChristineSteele84', 
+        owner_id: 13, 
         city: 'Chicago', 
-        description: 'One Louisville Slugger.'
+        description: 'One Louisville Slugger.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 25,
@@ -271,8 +343,11 @@ const items = [
         daily_cost: 20, 
         weekly_cost: 120, 
         owner: 'GregoryDaniels96', 
+        owner_id: 14, 
         city: 'Los Angeles', 
-        description: 'Great for filming action sports... surfing, snowboarding, skiing, etc.'
+        description: 'Great for filming action sports... surfing, snowboarding, skiing, etc.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 26,
@@ -282,8 +357,11 @@ const items = [
         daily_cost: 15, 
         weekly_cost: 90, 
         owner: 'GregoryDaniels96', 
+        owner_id: 14, 
         city: 'Los Angeles', 
-        description: 'Portable grill for backyards, camping, etc.'
+        description: 'Portable grill for backyards, camping, etc.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 27,
@@ -293,8 +371,11 @@ const items = [
         daily_cost: 8, 
         weekly_cost: 35, 
         owner: 'TerryPearson87', 
+        owner_id: 15,
         city: 'New York', 
-        description: 'Needle-nose pliers for gripping small objects.'
+        description: 'Needle-nose pliers for gripping small objects.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 28,
@@ -304,8 +385,11 @@ const items = [
         daily_cost: 15, 
         weekly_cost: 90, 
         owner: 'TerryPearson87', 
+        owner_id: 15,
         city: 'New York', 
-        description: 'Set of beginner golf clubs.'
+        description: 'Set of beginner golf clubs.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 29,
@@ -315,8 +399,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'LanaSchultz70', 
+        owner_id: 10,
         city: 'Chicago', 
-        description: 'One Black and Decker clothes iron.'
+        description: 'One Black and Decker clothes iron.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 30,
@@ -326,8 +413,11 @@ const items = [
         daily_cost: 10, 
         weekly_cost: 50, 
         owner: 'ChristineSteele84', 
+        owner_id: 13, 
         city: 'Chicago', 
-        description: 'Luxury lawn chair with cup holders.'
+        description: 'Luxury lawn chair with cup holders.', 
+        rental_start: '', 
+        rental_end: ''
     }, 
     {
         id: 31,
@@ -337,8 +427,11 @@ const items = [
         daily_cost: 12, 
         weekly_cost: 60, 
         owner: 'ThelmaShaw21', 
+        owner_id: 3,
         city: 'New York', 
-        description: 'Adjustable wooden painting easel.'
+        description: 'Adjustable wooden painting easel.', 
+        rental_start: '', 
+        rental_end: ''
     }
 ]
 

@@ -22,43 +22,82 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       user: {}, 
+      rentalHistory: [], 
+      searchResults: [], 
       items: items, 
       users: users,
-      searchResults: []
     }
+
+    // will become: isLoggedIn, user, rentalHistory, listedItems, and searchResults
   }
 
   // login handler (GET request to retrieve/find the user)
 
   handleLogin = (event) => {
     event.preventDefault(); 
-    const email  = event.target.email.value;
+    const input  = event.target.input.value;
     const password = event.target.password.value;
 
-    const users = this.state.users; 
-
-    users.forEach(user => {
-      if (user.email === email && user.password === password) {
-        this.setState({
-          isLoggedIn: true, 
-          user: user
-        }); 
-        this.props.history.push('/search');
-      } else {
-        alert('username and password are incorrect')
-      }; 
+    // retrieving user 
+    fetch('http://localhost:8000/api/login', {
+      method: 'GET', 
+      headers: {
+        'content-type': 'application/json', 
+        'input': `${input}`, 
+        'password': `${password}`
+      }
     })
-
-    /*
-    if (email === 'johnsmith@gmail.com' || password === 'smithjohn11') {
+    .then(res => {
+      if (!res.ok) {
+        throw new Error()
+      }
+      return res.json()
+    })
+    .then(resJson => {
       this.setState({
-        isLoggedIn: true, 
-        // items: items
-    }); 
-      this.props.history.push('/search')
-    } else {
-      alert('Oops! Username and password are incorrect')
-    } */
+        isLoggedIn: true,
+        user: resJson
+      })
+    })
+    .then(() => {
+
+      // retrieving user's rental history
+      const id = this.state.user.id
+      fetch(`http://localhost:8000/api/users/${id}/rentalhistory`, {
+        method: 'GET', 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('rental history GET request error')
+        }
+        return res.json()
+      })
+      .then(resJson => {
+        this.setState({
+          rentalHistory: resJson
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      }); 
+    })
+    .then(() => {
+      if (this.state.user.user_name && this.state.user.user_username && this.state.user.user_city) {
+        this.props.history.push('/search')
+      } else {
+        this.props.history.push('/createprofile')
+      }
+    })
+    .catch(error => {
+      this.setState({
+        user: 'not found'
+      })
+      alert('user not found')
+    });
+
   }
 
   // signup handler (POST request to add user to database)
@@ -68,24 +107,34 @@ class App extends React.Component {
     const email = event.target.email.value; 
     const password = event.target.password.value; 
     const newUser = {
-      id: 2,
-      name: "", 
-      email: email,
-      username: "", 
-      password: password,
-      city: "", 
+      user_name: "", 
+      user_email: email,
+      user_password: password,
+      user_username: "", 
+      user_city: "", 
       profile_img: "",
-      rental_history: [], 
-      listed_items: []
     }; 
-    const updatedUsers = this.state.users; 
-    updatedUsers.push(newUser)
-    this.setState({
-      user: newUser,
-      isLoggedIn: true, 
-      users: updatedUsers
-    }); 
-    this.props.history.push('/createprofile'); 
+
+    fetch('http://localhost:8000/api/users', {
+      method: 'POST', 
+      body: JSON.stringify(newUser), 
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error()
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        isLoggedIn: true,
+        user: resJson
+      }); 
+      this.props.history.push('/createprofile')
+    })
   }
 
   // create profile handler (PATCH request to update existing user in database)
@@ -95,16 +144,36 @@ class App extends React.Component {
     const name = event.target.name.value; 
     const username = event.target.username.value;
     const city = event.target.city.value; 
+    const id = this.state.user.id;
+
     const updatedUser = this.state.user; 
-    updatedUser.name = name; 
-    updatedUser.username = username; 
-    updatedUser.city = city;
+    updatedUser.user_name = name; 
+    updatedUser.user_username = username; 
+    updatedUser.user_city = city;
 
-    this.setState({
-      user: updatedUser
-    }); 
-    this.props.history.push('/search')
-
+    console.log(updatedUser);
+    fetch(`http://localhost:8000/api/users/${id}`, {
+      method: "PATCH", 
+      body: JSON.stringify(updatedUser), 
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('patch error')
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        user: resJson[0]
+      })
+      this.props.history.push('/search')
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   // logout handler 
@@ -113,7 +182,9 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       isLoggedIn: false, 
-      user: {}
+      user: {}, 
+      rentalHistory: [], 
+      searchResults: []
     }); 
     this.props.history.push('/')
   }
@@ -122,27 +193,35 @@ class App extends React.Component {
 
   handleSearch = (event) => {
     event.preventDefault(); 
-    const searchTerm = event.target.search.value
-    const category = parseInt(event.target.category.value)
+    const input = event.target.search.value
+    // const category = parseInt(event.target.category.value)
+    const category = event.target.category.value
     const city = event.target.city.value
     
-    let allItems = this.state.items
-
-    const results = allItems.filter(item => {
-      const lowerCaseName = item.item_name.toLowerCase(); 
-      const lowerCaseSearchTerm = searchTerm.toLowerCase(); 
-      if (lowerCaseName.includes(lowerCaseSearchTerm) && (item.category === category) && (item.city === city)) {
-        return item
-      } else {
-        return null
+    fetch('http://localhost:8000/api/search', {
+      method: "GET", 
+      headers: {
+        'content-type': 'application/json', 
+        'input': `${input}`, 
+        'category': `${category}`, 
+        'city': `${city}`
       }
     })
-
-    // console.log(results)
-    this.setState({
-      searchResults: results
-    }); 
-    this.props.history.push('/searchresults'); 
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('search error')
+      }
+      return res.json()
+    }) // need to add additional .then here to find items listed by currently logged in user and remove them from results
+    .then(resJson => {
+      this.setState({
+        searchResults: resJson
+      })
+      this.props.history.push('/searchresults')
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   // checkout handler (PATCH request to update user's rental history)
@@ -173,14 +252,6 @@ class App extends React.Component {
     } else {
       alert('please enter credit card information')
     } 
-
-    /*
-    updatedUser.rental_history.unshift(checkoutItem); 
-    this.setState({
-      user: updatedUser
-    }); 
-    this.props.history.push(`/confirmation/${itemId}`)
-    */
   }
 
   // list an item handler (PATCH request to update user's listed items)
@@ -285,6 +356,8 @@ class App extends React.Component {
   } 
 
   render() {
+    console.log(this.state.user)
+    console.log(this.state.rentalHistory)
     return (
       <div className="App">
         <Route exact path="/"
@@ -308,6 +381,7 @@ class App extends React.Component {
         render={(props) => (
           <Search {...props} 
           isLoggedIn={this.state.isLoggedIn}
+          user={this.state.user}
           handleLogout={this.handleLogout}
           items={this.state.items} 
           handleSearch={this.handleSearch}/>
@@ -349,7 +423,8 @@ class App extends React.Component {
           <Profile {...props} 
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
-          user={this.state.user} />
+          user={this.state.user}
+          rentalHistory={this.state.rentalHistory} />
         )} />
         <Route path="/editprofile"
         render={(props) => (

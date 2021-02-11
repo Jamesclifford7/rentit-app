@@ -10,12 +10,12 @@ function Login(props) {
                 <div className="login-form">
                     <h1>Login</h1>
                     <form onSubmit={event => props.handleLogin(event)}>
-                        <label htmlFor="email">Email or Username:</label>
-                        <input type="text" id="email" /><br />
+                        <label htmlFor="input">Email or Username:</label>
+                        <input type="text" id="input" /><br />
                         <label htmlFor="password">Password:</label>
                         <input type="password" id="password" /><br/>
                         <h5>Demo Email:</h5><p>johnsmith@gmail.com</p><br/>
-                        <h5>Demo Password:</h5><p>smithjohn11</p>
+                        <h5>Demo Password:</h5><p>Smithjohn11</p>
                         <button type="submit">Login</button>
                     </form>
                 </div>
