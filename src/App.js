@@ -23,7 +23,8 @@ class App extends React.Component {
       rentalHistory: [],
       listedItems: [],  
       searchResults: [], 
-      searchValues: []
+      searchValues: [], 
+      signupMessage: ''
     }
 
     // will become: isLoggedIn, user, rentalHistory, listedItems, and searchResults
@@ -139,6 +140,7 @@ class App extends React.Component {
       profile_img: "",
     }; 
 
+    let hasError = false; 
     fetch('http://localhost:8000/api/users', {
       method: 'POST', 
       body: JSON.stringify(newUser), 
@@ -147,18 +149,38 @@ class App extends React.Component {
       }
     })
     .then(res => {
+      console.log(res.body)
       if (!res.ok) {
-        throw new Error()
+        // throw new Error()
+        hasError = true
+        return res.text()
       }
       return res.json()
     })
+    .then(data => {
+      if (hasError) {
+        throw new Error(data)
+      }
+      this.setState({
+        isLoggedIn: true,
+        user: data
+      }); 
+      this.props.history.push('/createprofile')
+    })
+    .catch(error => {
+      error  = `${error}`.split(" ").splice(1, 7).join(" "); 
+      this.setState({
+        signupMessage: `Oops! ${error}`
+      })
+    })
+    /*
     .then(resJson => {
       this.setState({
         isLoggedIn: true,
         user: resJson
       }); 
       this.props.history.push('/createprofile')
-    })
+    }) */
   }
 
   // create profile handler (PATCH request to update existing user in database)
@@ -175,7 +197,6 @@ class App extends React.Component {
     updatedUser.user_username = username; 
     updatedUser.user_city = city;
 
-    console.log(updatedUser);
     fetch(`http://localhost:8000/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
@@ -234,11 +255,17 @@ class App extends React.Component {
     })
     .then(res => {
       if (!res.ok) {
-        throw new Error('search error')
+        // throw new Error('search error')
+        this.setState({
+          searchResults: [], 
+          searchValues: [category, city]
+        });
+        this.props.history.push('/searchresults')
       }
       return res.json()
-    }) // need to add additional .then here to find items listed by currently logged in user and remove them from results
+    }) 
     .then(resJson => {
+      console.log(resJson)
       this.setState({
         searchResults: resJson, 
         searchValues: [category, city]
@@ -247,7 +274,7 @@ class App extends React.Component {
     })
     .catch(error => {
       console.log(error)
-    })
+    }) 
   }
 
   // checkout handler (PATCH request to update user's rental history)
@@ -510,7 +537,8 @@ class App extends React.Component {
         render={(props) => (
           <Signup {...props} 
           isLoggedIn={this.state.isLoggedIn}
-          handleSignup={this.handleSignup}/>
+          handleSignup={this.handleSignup}
+          signupMessage={this.state.signupMessage}/>
         )} />
         <Route path="/createprofile"
         render={(props) => (
