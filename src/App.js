@@ -1,8 +1,6 @@
 import React from 'react'
 import './App.css';
 import { Route, withRouter } from 'react-router-dom'
-import items from './MockItems'
-import users from './MockUsers'
 import LandingPage from './components/landing/LandingPage'
 import Signup from './components/signup/Signup'
 import CreateProfile from './components/createprofile/CreateProfile'
@@ -22,10 +20,9 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false,
       user: {}, 
-      rentalHistory: [], 
+      rentalHistory: [],
+      listedItems: [],  
       searchResults: [], 
-      items: items, 
-      users: users,
     }
 
     // will become: isLoggedIn, user, rentalHistory, listedItems, and searchResults
@@ -83,6 +80,32 @@ class App extends React.Component {
       .catch(error => {
         console.log(error)
       }); 
+    })
+    .then(() => {
+
+      // retrieving user's currently listed items
+
+      const id = this.state.user.id
+      fetch(`http://localhost:8000/api/items/${id}/listeditems`, {
+        method: 'GET', 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error()
+        }
+        return res.json()
+      })
+      .then(resJson => {
+        this.setState({
+          listedItems: resJson
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      })
     })
     .then(() => {
       if (this.state.user.user_name && this.state.user.user_username && this.state.user.user_city) {
@@ -194,7 +217,6 @@ class App extends React.Component {
   handleSearch = (event) => {
     event.preventDefault(); 
     const input = event.target.search.value
-    // const category = parseInt(event.target.category.value)
     const category = event.target.category.value
     const city = event.target.city.value
     
@@ -228,65 +250,142 @@ class App extends React.Component {
 
   handleCheckout = (event) => {
     event.preventDefault(); 
-    const pickupdate = event.target.pickupdate.value
-    const returndate = event.target.returndate.value
-    const ccnumber = event.target.ccnumber.value
-    const expirationdate = event.target.expiration.value
-    const securitycode = event.target.securitycode.value
+    const ccnumber = event.target.ccnumber.value;
+    const expirationdate = event.target.expiration.value;
+    const securitycode = event.target.securitycode.value;
     const itemId = parseInt(event.target.itemid.value);
-    
-    const checkoutItem = this.state.searchResults.find(item => {
-      return item.id === itemId
-    }); 
-    console.log(this.state.searchResults, checkoutItem, itemId)
-    const updatedUser = this.state.user
-    checkoutItem['rental_start'] = pickupdate; 
-    checkoutItem['rental_end'] = returndate;
+
+    const item_name = event.target.itemname.value; 
+    const category = event.target.category.value; 
+    const img = event.target.img.value; 
+    const daily_cost = event.target.dailycost.value; 
+    const weekly_cost = event.target.weeklycost.value; 
+    const owner_username = event.target.ownerusername.value; 
+    const owner_id = event.target.ownerid.value; 
+    const city = event.target.city.value;
+    const item_description = event.target.itemdescription.value; 
+    const rental_start = event.target.pickupdate.value; 
+    const rental_end = event.target.returndate.value; 
+    const rented_by_id = event.target.rentedbyid.value; 
+    // const total_cost = parseInt(event.target.totalcost.value) // ?
+
+    const newItem = {
+      item_name, 
+      category, 
+      img, 
+      daily_cost, 
+      weekly_cost, 
+      owner_username, 
+      owner_id, 
+      city, 
+      item_description, 
+      rental_start, 
+      rental_end, 
+      rented_by_id
+    }; 
+
+    // DELETE from items, then POST to rental_history
     
     if (ccnumber === '4012888888881881' && expirationdate === '08/30' && securitycode === '342') {
-      updatedUser.rental_history.unshift(checkoutItem); 
-      this.setState({
-        user: updatedUser
+
+      fetch(`http://localhost:8000/api/items/${itemId}`, {
+        method: "DELETE", 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error()
+        }
+      })
+      .catch(error => {
+        console.log(error)
       }); 
-      this.props.history.push(`/confirmation/${itemId}`)
+
+      fetch(`http://localhost:8000/api/users/${rented_by_id}/rentalhistory`, {
+        method: "POST", 
+        body: JSON.stringify(newItem),
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('POST error to rental history')
+        }
+        return res.json()
+      })
+      .then(resJson => {
+        this.setState({
+          rentalHistory: [...this.state.rentalHistory, resJson]
+        }); 
+        this.props.history.push(`/confirmation/${resJson.id}`)
+      })
+      .catch(error => {
+        console.log(error)
+      }) 
+
     } else {
       alert('please enter credit card information')
-    } 
+    }
+
   }
 
-  // list an item handler (PATCH request to update user's listed items)
+  // list an item handler (POST request to update user's listed items)
 
   handleListItem = (event) => {
     event.preventDefault(); 
-    const itemname = event.target.itemname.value; 
+    const item_name = event.target.itemname.value; 
     const category = parseInt(event.target.itemcategory.value); // remember to parseInt()
-    const dailycost = parseInt(event.target.dailycost.value); 
-    const weeklycost = parseInt(event.target.weeklycost.value);
+    const daily_cost = parseInt(event.target.dailycost.value); 
+    const weekly_cost = parseInt(event.target.weeklycost.value);
     const description = event.target.description.value;
-    
+    const username = this.state.user.user_username; 
+    const owner_id = this.state.user.id; 
+    const city = this.state.user.user_city; 
+
     const newItem = {
-      id: 3,
-      item_name: itemname, 
-      catgory: category, 
-      img_url: "", 
-      daily_cost: dailycost, 
-      weekly_cost: weeklycost, 
-      owner: this.state.user.username, 
-      city: this.state.user.city, 
-      description: description
+      item_name: item_name, 
+      category: category, 
+      img: "", 
+      daily_cost: daily_cost, 
+      weekly_cost: weekly_cost, 
+      owner_username: username, 
+      owner_id: owner_id, 
+      city: city, 
+      item_description: description, 
+      rental_start: null, 
+      rental_end: null, 
+      rented_by_id: null
     }; 
 
-    const updatedUser = this.state.user; 
-    updatedUser.listed_items.unshift(newItem)
-
-    this.setState({
-      user: updatedUser
-    }); 
-    this.props.history.push('/profile')
+    fetch('http://localhost:8000/api/items/', {
+      method: "POST", 
+      body: JSON.stringify(newItem),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('POST error with /api/items')
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        listedItems: [...this.state.listedItems, resJson]
+      }); 
+      this.props.history.push('/profile') 
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
   // edit profile handler (PATCH request to update user info)
-
+  
   handleEditProfile = (event) => {
     event.preventDefault(); 
     const name = event.target.name.value; 
@@ -294,70 +393,108 @@ class App extends React.Component {
     const city = event.target.city.value; 
     
     const updatedUser = this.state.user;
+    const id = this.state.user.id
 
     if (!name) {
-      updatedUser.name = this.state.user.name
+      updatedUser.user_name = this.state.user.user_name
     } else {
-      updatedUser.name = name
+      updatedUser.user_name = name
     }; 
 
     if (!password) {
-      updatedUser.password = this.state.user.password
+      updatedUser.user_password = this.state.user.user_password
     } else {
-      updatedUser.password = password
+      updatedUser.user_password = password
     }; 
 
     if (!city) {
-      updatedUser.city = this.state.user.city
+      updatedUser.user_city = this.state.user.user_city
     } else {
-      updatedUser.city = city
+      updatedUser.user_city = city
     }; 
 
-    // console.log(name, city, password)
-
-    const updatedUsers = this.state.users; 
-    updatedUsers.push(updatedUser)
-
-    this.setState({
-      user: updatedUser, 
-      users: updatedUsers
+    
+    fetch(`http://localhost:8000/api/users/${id}`, {
+      method: "PATCH", 
+      body: JSON.stringify(updatedUser),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('error with PATCH request to /api/users/:id')
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        user: resJson[0],
+      }); 
+      this.props.history.push('/profile')
+    })
+    .catch(error => {
+      return console.log(error)
     }); 
 
-    this.props.history.push('/profile')
+  };  
 
-  } 
-
-  // delete item handler (PATCH request to update user's listed items)
+  // delete item handler (DELETE request /api/items to update user's listed items)
   
   handleDeleteItem = (event) => {
     event.preventDefault(); 
     const itemId = parseInt(event.target.parentNode.id)
-    const currentListedItems = this.state.user.listed_items; 
     
-    const itemToDelete = currentListedItems.find(item => {
-      if (item.id === itemId) {
-        return item
-      } else {
-        return null
+    console.log(itemId)
+
+    // removing the user's listed items
+    
+    fetch(`http://localhost:8000/api/items/${itemId}`, {
+      method: "DELETE", 
+      headers: {
+        'content-type': 'application/json'
       }
-    }); 
-
-    const itemToDeleteIndex = currentListedItems.indexOf(itemToDelete)
-
-    const updatedUser = this.state.user; 
-
-    updatedUser.listed_items.splice(itemToDeleteIndex, 1); 
-
-    this.setState({
-      user: updatedUser
     })
-
-    // const updatedListItems = currentListedItems.splice()
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('DELETE error with /api/items/:id')
+      }
+    })
+    .then(() => {
+      // updating this.state.listedItems
+      
+      const id = this.state.user.id
+      fetch(`http://localhost:8000/api/items/${id}/listeditems`, {
+        method: "GET", 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('GET request error with retrieving users updated listed items')
+        }
+        return res.json()
+      })
+      .then(resJson => {
+        this.setState({
+          listedItems: resJson
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      }) 
+    })
+    .catch(error => {
+      console.log(error)
+    }) 
+  
   } 
 
   render() {
     console.log(this.state.user)
     console.log(this.state.rentalHistory)
+    console.log(this.state.listedItems.length)
     return (
       <div className="App">
         <Route exact path="/"
@@ -383,7 +520,6 @@ class App extends React.Component {
           isLoggedIn={this.state.isLoggedIn}
           user={this.state.user}
           handleLogout={this.handleLogout}
-          items={this.state.items} 
           handleSearch={this.handleSearch}/>
         )} />
         <Route exact path="/searchresults"
@@ -391,22 +527,21 @@ class App extends React.Component {
           <SearchResults {...props} 
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
-          items={this.state.items}
           handleSearch={this.handleSearch}
           results={this.state.searchResults} />
         )}/>
-        <Route path="/item/:id" // path="/item"
+        <Route path="/item/:id" 
         render={(props) => (
           <Item {...props} 
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
-          // items={this.state.items}
           results={this.state.searchResults} />
         )} />
         <Route path="/checkout/:id"
         render={(props) => (
           <Checkout {...props} 
           isLoggedIn={this.state.isLoggedIn}
+          user={this.state.user}
           handleLogout={this.handleLogout}
           results={this.state.searchResults}
           handleCheckout={this.handleCheckout} />
@@ -415,6 +550,7 @@ class App extends React.Component {
         render={(props) => (
           <Confirmation {...props} 
           isLoggedIn={this.state.isLoggedIn}
+          rentalHistory={this.state.rentalHistory}
           handleLogout={this.handleLogout}
           user={this.state.user} />
         )}/>
@@ -424,6 +560,7 @@ class App extends React.Component {
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
           user={this.state.user}
+          listedItems={this.state.listedItems}
           rentalHistory={this.state.rentalHistory} />
         )} />
         <Route path="/editprofile"
@@ -432,6 +569,7 @@ class App extends React.Component {
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
           user={this.state.user}
+          listedItems={this.state.listedItems}
           handleEditProfile={this.handleEditProfile}
           handleDeleteItem={this.handleDeleteItem} />
         )}/>
@@ -446,7 +584,8 @@ class App extends React.Component {
           <ListItem {...props} 
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
-          handleListItem={this.handleListItem} />
+          handleListItem={this.handleListItem}
+          user={this.state.user} />
         )}/>
       </div>
     )

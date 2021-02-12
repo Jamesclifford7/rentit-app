@@ -61,17 +61,3 @@ class Nav extends React.Component {
 }
 
 export default Nav
-
-/*
-
-<header>
-    <h2>Rentit</h2>
-    <nav>
-        <ul>
-            <li>Sign Up</li>
-            <li>Login</li>
-        </ul>
-    </nav>
-</header>
-
-*/

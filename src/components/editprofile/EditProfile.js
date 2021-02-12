@@ -3,7 +3,10 @@ import Nav from '../navbar/Nav'
 import './EditProfile.css'
 
 function EditProfile(props) {
+    console.log(props)
+    console.log(props.isLoggedIn)
     console.log(props.user)
+    console.log(props.listedItems.length)
     return (
         <>
             <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
@@ -12,6 +15,7 @@ function EditProfile(props) {
                     <h1>Edit Profile</h1>
                     <img src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png" height="100" width="auto" alt="profile icon" /><br/>
                     <button>Upload Image</button>
+                    
                     <form onSubmit={event => props.handleEditProfile(event)}>
                         <label htmlFor="name">Name:</label>
                         <input id="name" type="text" /><br/>
@@ -26,17 +30,18 @@ function EditProfile(props) {
                         </select><br/>
                         <button type="submit">Update</button>
                     </form>
+
                     <div className="listings">
                         <h2>My Listings</h2>
                         {
-                            props.user.listed_items.map((item, idx) => {
+                            props.listedItems.slice(0).reverse().map((item, idx) => {
                                 return <div className="listing" key={idx} id={item.id}>
                                             <h4>{item.item_name}</h4>
                                             <button onClick={event => props.handleDeleteItem(event)}>Delete</button>
                                         </div>
                             })
                         }
-                    </div>
+                    </div> 
                 </div>
             </main>
             <footer>
@@ -47,12 +52,3 @@ function EditProfile(props) {
 }
 
 export default EditProfile
-
-/*
-
-<div className="listing">
-    <h4>Item</h4>
-    <button>Delete</button>
-</div>
-
-*/

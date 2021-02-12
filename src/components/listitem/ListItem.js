@@ -26,6 +26,7 @@ function ListItem(props) {
                         <input id="dailycost" type="text"/><br/>
                         <label htmlFor="weeklycost">Weekly Cost:</label>
                         <input id="weeklycost" type="text"/><br/>
+                        <input id="ownerid" type="hidden" value={props.user.id} />
                         <label htmlFor="description">Description:</label>
                         <textarea id="description" type="text"/><br/>
                         <button type="submit">List</button>

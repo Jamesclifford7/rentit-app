@@ -36,7 +36,7 @@ function SearchResults(props) {
                     props.results[0]
                         ? props.results.map((result, idx) => {
                             return <div className="result" key={idx}>
-                                <img src={result.img_url} height="100px" width="auto" alt="rental item search result" />
+                                <img src={result.img} height="100px" width="auto" alt="rental item search result" />
                                 <div className="result-right">
                                     <h3><Link to={`/item/${result.id}`}>{result.item_name}</Link></h3>
                                     <p>{result.city}</p>
@@ -57,15 +57,3 @@ function SearchResults(props) {
 }
 
 export default SearchResults
-
-/*
-
-<div className="result">
-    <img src="https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png" height="100px" width="auto" />
-    <div className="result-right">
-        <h3>Item Name</h3>
-        <p>Location</p>
-    </div>
-</div>
-
-*/
