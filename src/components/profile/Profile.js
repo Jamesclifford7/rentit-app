@@ -33,7 +33,7 @@ function Profile(props) {
                 <div className="profile-right">
                     <h2>Rental History</h2>
                     { 
-                        props.rentalHistory.slice(0).reverse().map((item, idx) => {
+                        props.rentalHistory.map((item, idx) => {
                             return <div className="rental" key={idx}>
                                         <img src={item.img} height="60px" width="auto" alt="item icon" />
                                         <h3>{item.item_name}</h3>

@@ -23,6 +23,7 @@ class App extends React.Component {
       rentalHistory: [],
       listedItems: [],  
       searchResults: [], 
+      searchValues: []
     }
 
     // will become: isLoggedIn, user, rentalHistory, listedItems, and searchResults
@@ -219,6 +220,7 @@ class App extends React.Component {
     const input = event.target.search.value
     const category = event.target.category.value
     const city = event.target.city.value
+    const id = this.state.user.id
     
     fetch('http://localhost:8000/api/search', {
       method: "GET", 
@@ -226,7 +228,8 @@ class App extends React.Component {
         'content-type': 'application/json', 
         'input': `${input}`, 
         'category': `${category}`, 
-        'city': `${city}`
+        'city': `${city}`, 
+        'id': `${id}`
       }
     })
     .then(res => {
@@ -237,7 +240,8 @@ class App extends React.Component {
     }) // need to add additional .then here to find items listed by currently logged in user and remove them from results
     .then(resJson => {
       this.setState({
-        searchResults: resJson
+        searchResults: resJson, 
+        searchValues: [category, city]
       })
       this.props.history.push('/searchresults')
     })
@@ -528,7 +532,8 @@ class App extends React.Component {
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
           handleSearch={this.handleSearch}
-          results={this.state.searchResults} />
+          results={this.state.searchResults}
+          searchValues={this.state.searchValues} />
         )}/>
         <Route path="/item/:id" 
         render={(props) => (

@@ -15,7 +15,7 @@ function SearchResults(props) {
                         <label htmlFor="search">Search For:</label>
                         <input id="search" type="text"/>
                         <label htmlFor="category">In Category:</label>
-                        <select id="category">
+                        <select id="category" defaultValue={props.searchValues.length ? props.searchValues[0] : null}>
                             <option value="1">Household Appliance</option>
                             <option value="2">Tools</option>
                             <option value="3">Athletic Equipment</option>
@@ -23,7 +23,7 @@ function SearchResults(props) {
                             <option value="5">Other</option>
                         </select>
                         <label htmlFor="city">In City:</label>
-                        <select id="city">
+                        <select id="city" defaultValue={props.searchValues.length ? props.searchValues[1] : null}>
                             <option value="Los Angeles">Los Angeles</option>
                             <option value="New York">New York</option>
                             <option value="Chicago">Chicago</option>

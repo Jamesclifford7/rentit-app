@@ -3,10 +3,6 @@ import Nav from '../navbar/Nav'
 import './EditProfile.css'
 
 function EditProfile(props) {
-    console.log(props)
-    console.log(props.isLoggedIn)
-    console.log(props.user)
-    console.log(props.listedItems.length)
     return (
         <>
             <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
@@ -22,8 +18,8 @@ function EditProfile(props) {
                         <label htmlFor="password">Password:</label>
                         <input id="password" type="password" /><br/>
                         <label htmlFor="city">City:</label>
-                        <select id="city">
-                            <option value="" disabled defaultValue>Select</option>
+                        <select id="city" defaultValue="">
+                            <option  value="" disabled>Select</option>
                             <option value="Los Angeles">Los Angeles</option>
                             <option value="New York">New York</option>
                             <option value="Chicago">Chicago</option>
