@@ -529,6 +529,7 @@ class App extends React.Component {
     console.log(this.state.user)
     console.log(this.state.rentalHistory)
     console.log(this.state.listedItems.length)
+    console.log(this.state.isLoggedIn)
     return (
       <div className="App">
         <Route exact path="/"

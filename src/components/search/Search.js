@@ -3,10 +3,11 @@ import Nav from '../navbar/Nav'
 import './Search.css'
 
 function Search(props) {
+    console.log(props.isLoggedIn)
     return (
         <>
             {
-                props.isLoggedin
+                !props.isLoggedin
                 ? <>
                     <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
                     <main>
