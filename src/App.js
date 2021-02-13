@@ -298,7 +298,7 @@ class App extends React.Component {
     const rental_start = event.target.pickupdate.value; 
     const rental_end = event.target.returndate.value; 
     const rented_by_id = event.target.rentedbyid.value; 
-    // const total_cost = parseInt(event.target.totalcost.value) // ?
+    const total_cost = parseInt(event.target.totalcost.value) 
 
     const newItem = {
       item_name, 
@@ -312,8 +312,11 @@ class App extends React.Component {
       item_description, 
       rental_start, 
       rental_end, 
-      rented_by_id
+      rented_by_id, 
+      total_cost
     }; 
+
+
 
     // DELETE from items, then POST to rental_history
     
@@ -359,7 +362,7 @@ class App extends React.Component {
 
     } else {
       alert('please enter credit card information')
-    }
+    }  
 
   }
 
@@ -368,7 +371,7 @@ class App extends React.Component {
   handleListItem = (event) => {
     event.preventDefault(); 
     const item_name = event.target.itemname.value; 
-    const category = parseInt(event.target.itemcategory.value); // remember to parseInt()
+    const category = parseInt(event.target.itemcategory.value); 
     const daily_cost = parseInt(event.target.dailycost.value); 
     const weekly_cost = parseInt(event.target.weeklycost.value);
     const description = event.target.description.value;
@@ -379,7 +382,7 @@ class App extends React.Component {
     const newItem = {
       item_name: item_name, 
       category: category, 
-      img: "", 
+      img: "https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png", 
       daily_cost: daily_cost, 
       weekly_cost: weekly_cost, 
       owner_username: username, 
