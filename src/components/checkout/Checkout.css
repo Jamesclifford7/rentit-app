@@ -34,3 +34,21 @@
 .checkout .creditcard p {
     margin-left: 3px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .checkout {
+        width: 90%;
+    }
+
+    .checkout h3 {
+        width: 70%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .checkout img {
+        width: 100%;
+    }
+}

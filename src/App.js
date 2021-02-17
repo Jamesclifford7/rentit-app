@@ -90,7 +90,7 @@ class App extends React.Component {
       const id = this.state.user.id
       fetch(`http://localhost:8000/api/items/${id}/listeditems`, {
         method: 'GET', 
-        headers: {
+        headers: { 
           'content-type': 'application/json'
         }
       })
@@ -149,7 +149,6 @@ class App extends React.Component {
       }
     })
     .then(res => {
-      console.log(res.body)
       if (!res.ok) {
         // throw new Error()
         hasError = true
@@ -265,7 +264,6 @@ class App extends React.Component {
       return res.json()
     }) 
     .then(resJson => {
-      console.log(resJson)
       this.setState({
         searchResults: resJson, 
         searchValues: [category, city]
@@ -287,23 +285,23 @@ class App extends React.Component {
     const itemId = parseInt(event.target.itemid.value);
 
     const item_name = event.target.itemname.value; 
-    const category = event.target.category.value; 
-    const img = event.target.img.value; 
-    const daily_cost = event.target.dailycost.value; 
-    const weekly_cost = event.target.weeklycost.value; 
+    const category = parseInt(event.target.category.value); 
+    // const img = event.target.img.value; 
+    const daily_cost = parseInt(event.target.dailycost.value); 
+    const weekly_cost = parseInt(event.target.weeklycost.value); 
     const owner_username = event.target.ownerusername.value; 
-    const owner_id = event.target.ownerid.value; 
+    const owner_id = parseInt(event.target.ownerid.value); 
     const city = event.target.city.value;
     const item_description = event.target.itemdescription.value; 
     const rental_start = event.target.pickupdate.value; 
     const rental_end = event.target.returndate.value; 
-    const rented_by_id = event.target.rentedbyid.value; 
+    const rented_by_id = parseInt(event.target.rentedbyid.value); 
     const total_cost = parseInt(event.target.totalcost.value) 
 
     const newItem = {
       item_name, 
       category, 
-      img, 
+      img: 'https://www.pngitem.com/pimgs/m/568-5680053_prod-placeholder-vector-product-icon-png-transparent-png.png', 
       daily_cost, 
       weekly_cost, 
       owner_username, 
@@ -317,11 +315,10 @@ class App extends React.Component {
     }; 
 
 
-
     // DELETE from items, then POST to rental_history
     
     if (ccnumber === '4012888888881881' && expirationdate === '08/30' && securitycode === '342') {
-
+      
       fetch(`http://localhost:8000/api/items/${itemId}`, {
         method: "DELETE", 
         headers: {
@@ -478,8 +475,6 @@ class App extends React.Component {
   handleDeleteItem = (event) => {
     event.preventDefault(); 
     const itemId = parseInt(event.target.parentNode.id)
-    
-    console.log(itemId)
 
     // removing the user's listed items
     
@@ -526,10 +521,6 @@ class App extends React.Component {
   } 
 
   render() {
-    console.log(this.state.user)
-    console.log(this.state.rentalHistory)
-    console.log(this.state.listedItems.length)
-    console.log(this.state.isLoggedIn)
     return (
       <div className="App">
         <Route exact path="/"
@@ -556,7 +547,7 @@ class App extends React.Component {
           isLoggedIn={this.state.isLoggedIn}
           user={this.state.user}
           handleLogout={this.handleLogout}
-          handleSearch={this.handleSearch}/>
+          handleSearch={this.handleSearch} />
         )} />
         <Route exact path="/searchresults"
         render={(props) => (

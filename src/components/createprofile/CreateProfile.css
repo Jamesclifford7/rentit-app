@@ -14,3 +14,12 @@
 .create-profile input, .create-profile select {
     margin-left: 5px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .create-profile {
+        margin-top: 100px;
+        width: 90%;
+    }
+}

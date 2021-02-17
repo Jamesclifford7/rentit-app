@@ -1,5 +1,4 @@
 
-
 .signup-form {
     background-color: blanchedalmond;
     width: 50%;
@@ -20,9 +19,49 @@
     display: inline-block;
 } 
 
+.signup-form button {
+    margin: 10px;
+}
+
 .signup-form p {
     width: 60%;
     margin: 0 auto;
     padding: 10px;
     line-height: 25px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .signup-form {
+        margin-bottom: 200px;
+        width: 90%;
+    }
+
+    .signup-form form {
+        /* border: solid;  */
+        width: 40%;
+    }
+
+    .signup-form input {
+        margin: 0 auto;
+    }
+
+    .signup-form label {
+        margin-top: 10px;
+    }
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .signup-form {
+        margin-bottom: 549px; 
+    }
+
+    .signup-form form input {
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+

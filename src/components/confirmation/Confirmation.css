@@ -14,3 +14,12 @@
 .confirmation button {
     margin-bottom: 20px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .confirmation {
+        width: 90%;
+    }
+
+}

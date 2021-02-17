@@ -66,3 +66,39 @@
 .profile-right .rental img {
     margin-top: 5px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+
+    .profile-container {
+        /* margin-top: 100px; */
+        display: block;
+    }
+
+    .profile-container .profile-left {
+        display: block;
+        width: 100%;
+        text-align: center;
+        border: none;
+    }
+
+    .profile-container .profile-left .profile {
+        text-align: center;
+    }
+
+    .profile-left .profile img, .profile-left .profile a, .profile-left .profile h1, .profile-left .profile h3 {
+        margin-left: 0px;
+    }
+    
+    .profile-container .profile-right {
+        display: block;
+        width: 100%;
+        text-align: center;
+        border: none;
+    }
+
+    .profile-right .rental {
+        border-bottom: solid;
+    }
+}

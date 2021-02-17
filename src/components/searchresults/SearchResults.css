@@ -34,8 +34,37 @@
     
     margin: 0 auto;
     padding: 5px;
+    padding-left: 20px;
 }
 
 .results .no-results {
     padding-bottom: 400px;
+}
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .search-results {
+        width: 90%;
+    }
+
+    .search-results form label, .search-results form input, .search-results form select, .search-results form button {
+        margin: 0 auto; 
+        display: block;
+        margin-top: 10px;
+    }  
+
+    .results .result {
+        width: 90%;
+    }
+    /*
+    .results .result img {
+        padding-top: 20px;
+    } */
+
+    .results .result img, .results  .result .result-right {
+        display: block;
+        text-align: center;
+        padding: 20px;
+    }
 }

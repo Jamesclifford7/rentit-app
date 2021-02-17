@@ -14,11 +14,37 @@
 }
 
 .login-form label, .login-form input, .login-form button {
+    margin: 0 auto;
     margin-bottom: 10px;
     display: inline-block;
 } 
 
+.login-form button {
+    margin: 10px;
+}
+
 .login-form h5, .login-form p {
     margin: 0 auto;
-    padding: 5px;
+    padding: 5px 0 5px 0;
+}
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .login-form {
+        margin-bottom: 200px;
+        width: 90%;
+    }
+
+    .login-form form {
+        width: 40%;
+    }
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .login-form {
+        margin-bottom: 500px;
+    }
 }

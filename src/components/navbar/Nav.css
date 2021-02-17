@@ -44,6 +44,10 @@ header nav ul li {
     margin-right: 50px; 
 }
 
+header nav ul li img {
+    border-radius: 50%;
+}
+
 /* dropdown */
 
 .dropdown-container {
@@ -51,49 +55,77 @@ header nav ul li {
     width: 10%;
     position: absolute; 
     background-color: blanchedalmond;
-    /*margin-right: 300px; */
     margin-left: 900px; 
     text-align: center;
 }
 
-/* phone media query */ 
+.dropdown-container a, .dropdown-container button {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* media query for phone */ 
 
 @media all and (max-width: 450px) {
 
     header {
         text-align: center;
+        height: auto;
     }
 
    header h2 {
        display: block;
        margin-left: 0;
-       /* width: 90%; */
        width: auto;
        padding-bottom: 0;
-       /* margin-right: 40px; */
        margin: 0 auto;
-       border-bottom: 0;
+       padding: 20px;
    } 
 
    header nav {
        float: none;
        display: block;
        padding: 3px;
-       border-bottom: solid;
+       position: static;
+       margin: 0 auto; 
+       top: none; 
+       transform: none;
+       width: auto;
    }
 
    header nav ul {
-       padding: 0;
+       margin: 0;
+       text-align: center; 
+       padding-right: 40px;
+       width: auto; 
+       display: block;
    }
 
    header nav ul li {
         display: block; 
-        margin-right: 0px;
-        padding: 5px;
+        margin: 0px;
+        width: auto;
+        padding: 10px;
    }
 
    header nav {
        background-color: blanchedalmond;
    }
 
+   .dropdown-container {
+       /* margin: auto; 
+       margin-left: 100px; */
+       margin: 0 auto;
+       width: 90%;
+       position: static;
+   }
+
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .dropdown-container {
+        margin-left: 495px; 
+    }
 }

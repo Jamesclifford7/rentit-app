@@ -15,3 +15,27 @@
 .search input, .search select {
     margin-left: 5px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .search {
+        /* margin-top: 100px;
+        margin-bottom: 300px; */
+        width: 90%;
+    }
+
+    .search form label, .search form input, .search form select, .search form button {
+        margin: 0 auto; 
+        display: block;
+        margin-top: 10px;
+    } 
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .search {
+        margin-bottom: 700px; 
+    }
+}

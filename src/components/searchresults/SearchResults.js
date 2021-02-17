@@ -39,7 +39,7 @@ function SearchResults(props) {
                             props.results[0]
                                 ? props.results.map((result, idx) => {
                                     return <div className="result" key={idx}>
-                                        <img src={result.img} height="100px" width="auto" alt="rental item search result" />
+                                        <img src={result.img} height="120px" width="150px" alt="rental item search result" />
                                         <div className="result-right">
                                             <h3><Link to={`/item/${result.id}`}>{result.item_name}</Link></h3>
                                             <p>{result.city}</p>

@@ -10,7 +10,7 @@
     margin-bottom: 10px;
 }
 
-.edit-profile select {
+.edit-profile input, .edit-profile select {
     margin-left: 5px;
 }
 
@@ -26,4 +26,33 @@
 .listing button {
     float: right;
     margin-right: 10px;
+}
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .edit-profile {
+        width: 90%;
+    }
+
+    .edit-profile .listings .listing {
+        margin: 0 auto; 
+        text-align: center; 
+    }
+
+    .edit-profile .listings .listing button {
+        display: block;
+        float: none; 
+        margin: auto;
+        margin-top: 20px;
+    }
+
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .edit-profile {
+        width: 90%; 
+    }
 }

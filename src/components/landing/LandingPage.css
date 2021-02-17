@@ -102,7 +102,7 @@ footer span {
     padding: 10px;
 }
 
-/* phone media query */ 
+/* media query for phone */ 
 
 @media all and (max-width: 450px) {
     main .landing-container {

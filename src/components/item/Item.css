@@ -14,3 +14,24 @@
 .item button {
     margin-bottom: 10px;
 }
+
+/* media query for phone */
+
+@media all and (max-width: 450px) {
+    .item {
+        width: 90%;
+    }
+
+    .item img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .item img {
+        width: 100%;
+    }
+}
