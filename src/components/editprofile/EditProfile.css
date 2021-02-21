@@ -1,5 +1,5 @@
 .edit-profile {
-    background-color: blanchedalmond;
+    background-color: #E94F37;
     width: 50%;
     border: solid;
     margin: 0 auto;
@@ -10,13 +10,22 @@
     margin-bottom: 10px;
 }
 
+.edit-profile img {
+    border-radius: 100%;
+}
+
 .edit-profile input, .edit-profile select {
     margin-left: 5px;
+}
+
+.edit-profile h1, .edit-profile label, .edit-profile h2 {
+    color: white;
 }
 
 .listing {
     border-top: solid; 
     padding: 20px;
+    background-color: #F4F4F8;
 }
 
 .listing h4, .listing button {

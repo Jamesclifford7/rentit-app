@@ -1,11 +1,21 @@
 .search {
-    background-color: blanchedalmond;
+    /* background-color: #F4F4F8; */
+    background-color: #E94F37;
     width: 70%;
     border: solid;
     margin: 0 auto;
     padding-bottom: 30px;
     margin-top: 40px;
     margin-bottom: 500px;
+}
+
+.search h1 {
+    /* color: #00CC66; */
+    color: white;
+} 
+
+.search label {
+    color: white;
 }
 
 .search label, .search button {

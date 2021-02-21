@@ -159,27 +159,21 @@ class App extends React.Component {
     .then(data => {
       if (hasError) {
         throw new Error(data)
-      }
+      } else {
       this.setState({
         isLoggedIn: true,
         user: data
       }); 
-      this.props.history.push('/createprofile')
+      this.props.history.push('/createprofile') 
+      }
     })
     .catch(error => {
       error  = `${error}`.split(" ").splice(1, 7).join(" "); 
       this.setState({
         signupMessage: `Oops! ${error}`
-      })
-    })
-    /*
-    .then(resJson => {
-      this.setState({
-        isLoggedIn: true,
-        user: resJson
       }); 
-      this.props.history.push('/createprofile')
-    }) */
+      alert(this.state.signupMessage)
+    })
   }
 
   // create profile handler (PATCH request to update existing user in database)
@@ -195,6 +189,10 @@ class App extends React.Component {
     updatedUser.user_name = name; 
     updatedUser.user_username = username; 
     updatedUser.user_city = city;
+
+    console.log(updatedUser); 
+    console.log(this.state.listedItems); 
+    
 
     fetch(`http://localhost:8000/api/users/${id}`, {
       method: "PATCH", 
@@ -217,7 +215,7 @@ class App extends React.Component {
     })
     .catch(error => {
       console.log(error)
-    })
+    }) 
   }
 
   // logout handler 
@@ -225,10 +223,13 @@ class App extends React.Component {
   handleLogout = (event) => {
     event.preventDefault();
     this.setState({
-      isLoggedIn: false, 
+      isLoggedIn: false,
       user: {}, 
-      rentalHistory: [], 
-      searchResults: []
+      rentalHistory: [],
+      listedItems: [],  
+      searchResults: [], 
+      searchValues: [], 
+      signupMessage: ''
     }); 
     this.props.history.push('/')
   }
@@ -521,6 +522,7 @@ class App extends React.Component {
   } 
 
   render() {
+    console.log(this.state.signupMessage)
     return (
       <div className="App">
         <Route exact path="/"

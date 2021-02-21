@@ -28,7 +28,7 @@ class Item extends React.Component {
                                                     <h3>{item.city}</h3>
                                                     <p>Daily Cost: ${item.daily_cost}</p>
                                                     <p>Weekly Cost: ${item.weekly_cost}</p>
-                                                    <h3>Item Info</h3>
+                                                    <h3>Item Info:</h3>
                                                     <p>{item.item_description}</p>
                                                     <button><Link to={`/checkout/${item.id}`}>Rent Item</Link></button><br />
                                                     <button onClick={event => this.backToSearch(event)}>Back to Search</button>

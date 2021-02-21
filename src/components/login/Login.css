@@ -1,5 +1,8 @@
+
 .login-form {
-    background-color: blanchedalmond;
+    /* background-color: #F4F4F8; */
+    background-color: #E94F37; 
+    /* background-color: #F4442E; brighter red */
     width: 50%;
     border: solid;
     margin: 0 auto;
@@ -7,10 +10,22 @@
     margin-bottom: 400px;;
 }
 
+.login-form h1 {
+    /* color: #00CC66; */
+    /* color: #E94F37; */
+    color: white; 
+    /* color: #F6F7EB; */
+} 
+
+.login-form p, .login-form h5, .login-form label {
+    color: white; 
+}
+
 .login-form form {
     text-align: left;
     width: 30%;
     margin: 0 auto;
+    /* border: solid; */
 }
 
 .login-form label, .login-form input, .login-form button {

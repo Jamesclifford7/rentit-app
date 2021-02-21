@@ -1,5 +1,5 @@
 .profile-container {
-    background-color: blanchedalmond;
+    background-color: #F4F4F8;
     width: 90%;
     border: solid;
     margin: 0 auto;
@@ -20,6 +20,7 @@
 .profile-left .profile {
     text-align: left;
     border-bottom: solid;
+    background-color: #E94F37;
 }
 
 .profile-left .profile img {
@@ -27,12 +28,30 @@
     margin-top: 10px;
 }
 
+.profile-left h1, .profile-left h3, .profile-left a:link, .profile-left a:visited {
+    color: white;
+}
+
+.profile-left a {
+    text-decoration: none;
+}
+
+.profile-left a:hover {
+    text-decoration: underline;
+}
+
+/*
+.profile-left .profile h1 {
+    color: #00CC66;
+} */
+
 .profile-left .profile img, .profile-left .profile a, .profile-left .profile h1, .profile-left .profile h3 {
     margin-left: 30px;
 }
 
 .profile-left h2 {
     border-bottom: solid;
+    border-color: black;
     margin: 0;
     padding: 20px;
 }
@@ -51,6 +70,7 @@
 
 .profile-right h2 {
     border-bottom: solid;
+    border-color: black;
     margin: 0 auto; 
     padding: 30px;
 }

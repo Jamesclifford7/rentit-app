@@ -28,14 +28,14 @@ function LandingPage(props) {
                     </div>
                     <div className="demo-item">
                         <h3>Search</h3>
-                        <p>Find your items to rent.</p>
+                        <p>Find items to rent.</p>
                     </div>
                     <div className="demo-item">
                         <h3>Rent and return</h3>
                         <p>Confirm your rental, pick it up, and return when rental period is up.</p>
                     </div>
                     <div className="demo-item">
-                        <h3>List your own items for rent</h3>
+                        <h3>List your items</h3>
                         <p>Looking to make some extra cash on the side? Rent out your belongings!</p>
                     </div>
                 </div>
@@ -49,7 +49,6 @@ function LandingPage(props) {
                             <button><Link to="/signup">Sign Up</Link></button>
                         </div>
                         <div className="signup-right">
-                            <span>(image)</span>
                         </div>
                     </div>
                 </div>

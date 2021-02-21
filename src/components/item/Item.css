@@ -1,5 +1,6 @@
 .item {
-    background-color: blanchedalmond;
+    /* background-color: #F4F4F8; */
+    background-color: #E94F37; 
     width: 70%;
     border: solid;
     margin: 0 auto;
@@ -9,10 +10,21 @@
 .item h1 {
     margin: 0 auto;
     padding: 30px;
+    /* color: #00CC66; */
+    color: white;
+}
+
+.item h3, .item p {
+    color: white;
 }
 
 .item button {
     margin-bottom: 10px;
+}
+
+.item img {
+    border: solid; 
+    border-width: 2px;
 }
 
 /* media query for phone */

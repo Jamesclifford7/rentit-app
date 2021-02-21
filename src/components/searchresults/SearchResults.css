@@ -1,11 +1,21 @@
 .search-results {
-    background-color: blanchedalmond;
+    /* background-color: #F4F4F8; */
+    background-color: #E94F37;
     width: 70%;
     border: solid;
     margin: 0 auto;
     padding-bottom: 30px;
     margin-top: 40px;
     /* margin-bottom: 500px;  */
+}
+
+.search-results h1 {
+    /* color: #00CC66; */
+    color: white;
+}
+
+.search-results label {
+    color: white;
 }
 
 .search-results label, .search-results button {
@@ -22,12 +32,18 @@
     width: 70%;
     margin: 0 auto;
     text-align: left;
+    background-color: #F4F4F8;
 }
 
 .result img, .result-right {
     display: inline-block;
     margin: 0 auto;
     vertical-align: middle;
+}
+
+.results img {
+    border-right: solid;
+    border-width: 2px;
 }
 
 .result-right h3, .result-right p {
