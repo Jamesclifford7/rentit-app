@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700&display=swap');
+
 /* header */
 
 header {
@@ -18,6 +20,7 @@ header h2 {
     margin-left: 20px;
     width: 10%;
     padding: 18px; 
+    font-family: 'EB Garamond', serif;
 }
 
 header h2 a {
@@ -45,6 +48,13 @@ header nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+header nav ul li button {
+    border-radius: 50px;
+    border: none;
+    outline: inherit; 
+    background-color: inherit;
 }
 
 header nav ul li a {
@@ -101,11 +111,22 @@ header nav ul li img {
 
 .dropdown-container a {
     color: white;
+
 }
 
 .dropdown-container a, .dropdown-container button {
     display: inline-block;
     margin: 5px;
+}
+
+.dropdown-container button {
+    background-color: inherit;
+    outline: inherit;
+    border: none;
+    color: white;
+    font-size: inherit;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: underline;
 }
 
 /* media query for phone */ 

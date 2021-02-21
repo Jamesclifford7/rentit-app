@@ -11,18 +11,18 @@ function Signup(props) {
                     <h1>Sign Up</h1>
                     <form onSubmit={event => props.handleSignup(event)}>
                         <label htmlFor="email">Email:</label>
-                        <input type="text" id="email"  />
+                        <input type="text" id="email" required />
                         <label htmlFor="password">Password:</label>
-                        <input type="password" id="password"  />
+                        <input type="password" id="password" required />
                         <button type="submit">Sign Up</button>
                     </form>
                     <p>*Password must include one uppercase letter, number, and be at least 6 characters long</p>
                 </div>
-                {
+                {/* 
                     props.signupMessage
-                    ? <p>{props.signupMessage}</p>
+                    ? <div><p>{props.signupMessage}</p></div>
                     : null
-                }
+                */}
             </main>
             <footer>
                 <span> &#169; Rentit 2021</span>

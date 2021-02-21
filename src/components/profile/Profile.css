@@ -85,6 +85,8 @@
 
 .profile-right .rental img {
     margin-top: 5px;
+    border: solid; 
+    border-width: 1px;
 }
 
 /* media query for phone */

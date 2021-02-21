@@ -4,6 +4,8 @@
     border: solid;
     margin: 0 auto;
     margin-top: 40px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
 }
 
 .edit-profile img, .edit-profile button, .edit-profile input, .edit-profile select {

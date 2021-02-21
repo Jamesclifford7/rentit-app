@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css';
 import { Route, withRouter } from 'react-router-dom'
+import './App.css'
 import LandingPage from './components/landing/LandingPage'
 import Signup from './components/signup/Signup'
 import CreateProfile from './components/createprofile/CreateProfile'
@@ -24,10 +25,10 @@ class App extends React.Component {
       listedItems: [],  
       searchResults: [], 
       searchValues: [], 
+      loginMessage: '',
       signupMessage: ''
     }
 
-    // will become: isLoggedIn, user, rentalHistory, listedItems, and searchResults
   }
 
   // login handler (GET request to retrieve/find the user)
@@ -118,9 +119,10 @@ class App extends React.Component {
     })
     .catch(error => {
       this.setState({
-        user: 'not found'
-      })
-      alert('user not found')
+        loginMessage: 'Oops! Username/Email and Password not found'
+      }) 
+      // alert(error)
+      // console.log(error)
     });
 
   }
@@ -522,7 +524,6 @@ class App extends React.Component {
   } 
 
   render() {
-    console.log(this.state.signupMessage)
     return (
       <div className="App">
         <Route exact path="/"
@@ -607,6 +608,7 @@ class App extends React.Component {
         render={(props) => (
           <Login {...props} 
           isLoggedIn={this.state.isLoggedIn}
+          loginMessage={this.state.loginMessage}
           handleLogin={this.handleLogin} />
         )}/>
         <Route path="/listitem"

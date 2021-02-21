@@ -1,12 +1,13 @@
 .search {
     /* background-color: #F4F4F8; */
     background-color: #E94F37;
-    width: 70%;
-    border: solid;
+    width: 90%;
+    border: solid; 
     margin: 0 auto;
     padding-bottom: 30px;
     margin-top: 40px;
     margin-bottom: 500px;
+    border-radius: 25px;
 }
 
 .search h1 {

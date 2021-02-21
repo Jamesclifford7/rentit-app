@@ -1,4 +1,10 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+
 /* main: landing */ 
+/*
+body {
+    font-family: 'Poppins', sans-serif; 
+} */
 
 main {
     text-align: center;
@@ -7,6 +13,7 @@ main {
 main h1 {
     margin: 0 auto;
     padding: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 main .landing-container {
@@ -70,20 +77,23 @@ main .demo-container .demo-item {
     border-width: 2px;
     width: 20%;
     padding-top: 20px;
-    padding-bottom: 70px;
+    padding-bottom: 60px;
     /* background-color: #F4F4F8; */
     background-color: white;
 }
-
+/*
 main .demo-container .demo-item h3 {
     padding-bottom: 10px;
-}
+} */
 
 main .demo-container .demo-item p {
     width: 90%;
     margin: 0 auto;
 }
 
+main .demo-container .demo-item svg {
+    padding-bottom: 20px;
+}
 /* main: signup container */
 
 .signup-container {
@@ -174,6 +184,11 @@ footer span {
        padding-top: 10px;
        padding-bottom: 50px;
        border-top: none;
+       background-color: #E94F37;
+   }
+
+   main .demo-container .demo-item h3, main .demo-container .demo-item svg, main .demo-container .demo-item p {
+        color: white;
    }
 
    main .signup-container .signup-right {

@@ -2,6 +2,11 @@ import React from 'react'
 import Nav from '../navbar/Nav'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons'
 
 function LandingPage(props) {
     return (
@@ -24,18 +29,22 @@ function LandingPage(props) {
                 <div className="demo-container">
                     <div className="demo-item">
                         <h3>Create an Account</h3>
+                        <FontAwesomeIcon icon={faUser} />
                         <p>Choose your city to start searching.</p>
                     </div>
                     <div className="demo-item">
                         <h3>Search</h3>
+                        <FontAwesomeIcon icon={faSearch} />
                         <p>Find items to rent.</p>
                     </div>
                     <div className="demo-item">
                         <h3>Rent and return</h3>
+                        <FontAwesomeIcon icon={faExchangeAlt} />
                         <p>Confirm your rental, pick it up, and return when rental period is up.</p>
                     </div>
                     <div className="demo-item">
                         <h3>List your items</h3>
+                        <FontAwesomeIcon icon={faDollarSign} />
                         <p>Looking to make some extra cash on the side? Rent out your belongings!</p>
                     </div>
                 </div>
@@ -45,7 +54,7 @@ function LandingPage(props) {
                     <h1>Sign Up</h1>
                     <div className="signup-flex-container">
                         <div className="signup-left">
-                            <h3>Get started today:</h3>
+                            <h3>Get started today!</h3>
                             <button><Link to="/signup">Sign Up</Link></button>
                         </div>
                         <div className="signup-right">
