@@ -40,11 +40,6 @@
     text-decoration: underline;
 }
 
-/*
-.profile-left .profile h1 {
-    color: #00CC66;
-} */
-
 .profile-left .profile img, .profile-left .profile a, .profile-left .profile h1, .profile-left .profile h3 {
     margin-left: 30px;
 }
@@ -94,7 +89,6 @@
 @media all and (max-width: 450px) {
 
     .profile-container {
-        /* margin-top: 100px; */
         display: block;
     }
 

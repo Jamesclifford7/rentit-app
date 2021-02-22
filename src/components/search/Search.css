@@ -1,5 +1,4 @@
 .search {
-    /* background-color: #F4F4F8; */
     background-color: #E94F37;
     width: 90%;
     border: solid; 
@@ -11,7 +10,6 @@
 }
 
 .search h1 {
-    /* color: #00CC66; */
     color: white;
 } 
 
@@ -31,8 +29,6 @@
 
 @media all and (max-width: 450px) {
     .search {
-        /* margin-top: 100px;
-        margin-bottom: 300px; */
         width: 90%;
     }
 

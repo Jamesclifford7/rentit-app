@@ -1,5 +1,4 @@
 .checkout {
-    /* background-color: #F4F4F8; */
     background-color: #E94F37;
     width: 70%;
     border: solid;
@@ -11,7 +10,6 @@
 .checkout h1 {
     margin: 0 auto;
     padding: 30px;
-    /* color: #00CC66; */
     color: white;
 }
 
@@ -24,8 +22,6 @@
 } 
 
 .checkout form label, .checkout form input, .checkout form button {
-    /* margin-left: 10px;
-    margin-top: 10px; */
     margin: 10px;
 } 
 

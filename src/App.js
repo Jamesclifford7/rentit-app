@@ -39,7 +39,8 @@ class App extends React.Component {
     const password = event.target.password.value;
 
     // retrieving user 
-    fetch('http://localhost:8000/api/login', {
+
+    fetch('https://quiet-tor-97321.herokuapp.com/api/login', {
       method: 'GET', 
       headers: {
         'content-type': 'application/json', 
@@ -63,7 +64,8 @@ class App extends React.Component {
 
       // retrieving user's rental history
       const id = this.state.user.id
-      fetch(`http://localhost:8000/api/users/${id}/rentalhistory`, {
+
+      fetch(`https://quiet-tor-97321.herokuapp.com/api/users/${id}/rentalhistory`, {
         method: 'GET', 
         headers: {
           'content-type': 'application/json'
@@ -89,7 +91,8 @@ class App extends React.Component {
       // retrieving user's currently listed items
 
       const id = this.state.user.id
-      fetch(`http://localhost:8000/api/items/${id}/listeditems`, {
+
+      fetch(`https://quiet-tor-97321.herokuapp.com/api/items/${id}/listeditems`, {
         method: 'GET', 
         headers: { 
           'content-type': 'application/json'
@@ -143,7 +146,8 @@ class App extends React.Component {
     }; 
 
     let hasError = false; 
-    fetch('http://localhost:8000/api/users', {
+
+    fetch(`https://quiet-tor-97321.herokuapp.com/api/users`, {
       method: 'POST', 
       body: JSON.stringify(newUser), 
       headers: {
@@ -196,7 +200,7 @@ class App extends React.Component {
     console.log(this.state.listedItems); 
     
 
-    fetch(`http://localhost:8000/api/users/${id}`, {
+    fetch(`https://quiet-tor-97321.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
       headers: {
@@ -245,7 +249,7 @@ class App extends React.Component {
     const city = event.target.city.value
     const id = this.state.user.id
     
-    fetch('http://localhost:8000/api/search', {
+    fetch('https://quiet-tor-97321.herokuapp.com/api/search', {
       method: "GET", 
       headers: {
         'content-type': 'application/json', 
@@ -322,7 +326,7 @@ class App extends React.Component {
     
     if (ccnumber === '4012888888881881' && expirationdate === '08/30' && securitycode === '342') {
       
-      fetch(`http://localhost:8000/api/items/${itemId}`, {
+      fetch(`https://quiet-tor-97321.herokuapp.com/api/items/${itemId}`, {
         method: "DELETE", 
         headers: {
           'content-type': 'application/json'
@@ -337,7 +341,7 @@ class App extends React.Component {
         console.log(error)
       }); 
 
-      fetch(`http://localhost:8000/api/users/${rented_by_id}/rentalhistory`, {
+      fetch(`https://quiet-tor-97321.herokuapp.com/api/users/${rented_by_id}/rentalhistory`, {
         method: "POST", 
         body: JSON.stringify(newItem),
         headers: {
@@ -394,7 +398,7 @@ class App extends React.Component {
       rented_by_id: null
     }; 
 
-    fetch('http://localhost:8000/api/items/', {
+    fetch('https://quiet-tor-97321.herokuapp.com/api/items', {
       method: "POST", 
       body: JSON.stringify(newItem),
       headers: {
@@ -447,8 +451,7 @@ class App extends React.Component {
       updatedUser.user_city = city
     }; 
 
-    
-    fetch(`http://localhost:8000/api/users/${id}`, {
+    fetch(`https://quiet-tor-97321.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser),
       headers: {
@@ -481,7 +484,7 @@ class App extends React.Component {
 
     // removing the user's listed items
     
-    fetch(`http://localhost:8000/api/items/${itemId}`, {
+    fetch(`https://quiet-tor-97321.herokuapp.com/api/items/${itemId}`, {
       method: "DELETE", 
       headers: {
         'content-type': 'application/json'
@@ -496,7 +499,8 @@ class App extends React.Component {
       // updating this.state.listedItems
       
       const id = this.state.user.id
-      fetch(`http://localhost:8000/api/items/${id}/listeditems`, {
+
+      fetch(`https://quiet-tor-97321.herokuapp.com/api/items/${id}/listeditems`, {
         method: "GET", 
         headers: {
           'content-type': 'application/json'

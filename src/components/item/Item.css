@@ -1,5 +1,4 @@
 .item {
-    /* background-color: #F4F4F8; */
     background-color: #E94F37; 
     width: 70%;
     border: solid;
@@ -11,7 +10,6 @@
 .item h1 {
     margin: 0 auto;
     padding: 30px;
-    /* color: #00CC66; */
     color: white;
 }
 
@@ -36,7 +34,7 @@
     }
 
     .item img {
-        width: 100%;
+        width: 99%;
         height: auto;
     }
 }

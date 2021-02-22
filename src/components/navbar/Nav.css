@@ -6,10 +6,7 @@ header {
     height: 70px;
     border-bottom: solid; 
     border-width: 2px; 
-    /* border-color: #00CC66; */
     margin: 0;
-    /* background-color: #F4F4F8; */
-    /* background-color: #F6F7EB; */
     background-color: white; 
     position: relative;
 }
@@ -32,12 +29,10 @@ header h2 a:hover {
 }
 
 header h2 a:link {
-    /* color: #00CC66; */
     color: #E94F37;
 }
 
 header h2 a:visited {
-    /* color: #00CC66; */
     color: #E94F37;
 }
 
@@ -66,24 +61,12 @@ header nav ul li a:hover {
 }
 
 header nav ul li a:link {
-    /* color: #F13030; */
     color: black;
 }
 
 header nav ul li a:visited {
-    /* color: #F13030; */
     color: black;
 }
-
-/*
-header nav {
-    margin: 0 auto;
-    /*width: 25%; 
-    display: inline;
-    float: right;
-    padding: 8px;
-    vertical-align: middle;
-} */
 
 header nav ul {
     text-align: right;
@@ -172,14 +155,8 @@ header nav ul li img {
         width: auto;
         padding: 10px;
    }
-   /*
-   header nav {
-       background-color: blanchedalmond;
-   } */
 
    .dropdown-container {
-       /* margin: auto; 
-       margin-left: 100px; */
        margin: 0 auto;
        width: 90%;
        position: static;
@@ -191,6 +168,15 @@ header nav ul li img {
 
 @media all and (min-width: 600px) and (max-width: 900px) {
     .dropdown-container {
-        margin-left: 495px; 
+        margin-left: 480px; 
+        width: inherit;
+    }
+}
+
+/* media query for sideways tablet */
+
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+    .dropdown-container {
+        margin-left: 700px;
     }
 }

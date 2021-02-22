@@ -6,7 +6,7 @@ function Search(props) {
     return (
         <>
             {
-                !props.isLoggedin
+                props.isLoggedIn
                 ? <>
                     <Nav isLoggedIn={props.isLoggedIn} handleLogout={props.handleLogout} />
                     <main>
