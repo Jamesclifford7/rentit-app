@@ -38,8 +38,28 @@ class App extends React.Component {
     const input  = event.target.input.value;
     const password = event.target.password.value;
 
+    /*
+
+    auth token: 
+
+    makeBasicAuthToken(userName, password) {
+      return window.btoa(`${userName}:${password}`)
+    },
+    saveAuthToken(token) {
+      window.localStorage.setItem(config.TOKEN_KEY, token)
+    },
+
+    const encodedInput = window.btoa(input); 
+    const encodedPassword = window.btoa(password); 
+
+    const decodedInput = window.atob(encodedInput); 
+    const decodedPassword = window.atob(encodedPassword);
+
+    */
+
     // retrieving user 
 
+    
     fetch('https://quiet-tor-97321.herokuapp.com/api/login', {
       method: 'GET', 
       headers: {
