@@ -33,10 +33,13 @@ class Nav extends React.Component {
                             {
                                 this.state.showMenu
                                 ? <div className="dropdown-container">
+                                <div className="dropdown-triangle"></div>
+                                <div className="dropdown">
                                     <Link to="/profile">Your Profile</Link><br/>
                                     <Link to="/search">Search</Link><br/>
                                     <Link to="/listitem">List</Link><br/>
                                     <button onClick={event => this.props.handleLogout(event)}>Logout</button>
+                                </div>
                                 </div>
                                 : null
                             }
