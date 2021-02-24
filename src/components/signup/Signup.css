@@ -20,8 +20,10 @@
 }
 
 .signup-form label, .signup-form input, .signup-form button {
-    margin-bottom: 10px;
-    display: inline-block;
+    margin-bottom: 10px; 
+    display: inline-block; 
+    /* display: block;
+    margin-bottom: 10px; */
 } 
 
 .signup-form button {

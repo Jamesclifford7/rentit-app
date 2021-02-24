@@ -139,6 +139,26 @@ header nav ul li img {
     text-decoration: underline;
 }
 
+.display-enter {
+    opacity: 0;
+}
+
+.display-enter-active {
+    opacity: 1;
+    transition: height 2000ms; 
+    transition-timing-function: ease-in; 
+}
+
+.display-exit {
+    opacity: 1;
+}
+
+.display-exit-active {
+    opacity: 0;
+    transition: height 2000ms; 
+    transition-timing-function: ease-out; 
+}
+
 /* media query for phone */ 
 
 @media all and (max-width: 450px) {
@@ -185,8 +205,12 @@ header nav ul li img {
 
    .dropdown-container {
        margin: 0 auto;
-       width: 90%;
+       width: 100%;
        position: static;
+   }
+
+   .dropdown-container .dropdown a, .dropdown-container .dropdown button {
+       padding: 5px;
    }
 
 }

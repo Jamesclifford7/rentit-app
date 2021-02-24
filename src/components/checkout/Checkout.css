@@ -55,4 +55,17 @@
     .checkout img {
         width: 100%;
     }
+
+    .checkout form .rental-period {
+        padding: 0;
+    }
+
+    .checkout form .rental-period label, .checkout form .rental-period input {
+        display: block;
+        margin: 0 auto;
+    } 
+
+    .checkout form .rental-period label {
+        padding: 10px;
+    }
 }
