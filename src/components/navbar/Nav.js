@@ -11,11 +11,6 @@ class Nav extends React.Component {
         }
     }
 
-    // your profile
-    // search
-    // list
-    // logout
-
     toggleMenu = (event) => {
         event.preventDefault(); 
         this.setState(prevState => ({

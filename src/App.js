@@ -38,25 +38,6 @@ class App extends React.Component {
     const input  = event.target.input.value;
     const password = event.target.password.value;
 
-    /*
-
-    auth token: 
-
-    makeBasicAuthToken(userName, password) {
-      return window.btoa(`${userName}:${password}`)
-    },
-    saveAuthToken(token) {
-      window.localStorage.setItem(config.TOKEN_KEY, token)
-    },
-
-    const encodedInput = window.btoa(input); 
-    const encodedPassword = window.btoa(password); 
-
-    const decodedInput = window.atob(encodedInput); 
-    const decodedPassword = window.atob(encodedPassword);
-
-    */
-
     // retrieving user 
 
     
@@ -144,8 +125,6 @@ class App extends React.Component {
       this.setState({
         loginMessage: 'Oops! Username/Email and Password not found'
       }) 
-      // alert(error)
-      // console.log(error)
     });
 
   }
@@ -176,7 +155,6 @@ class App extends React.Component {
     })
     .then(res => {
       if (!res.ok) {
-        // throw new Error()
         hasError = true
         return res.text()
       }
