@@ -55,7 +55,7 @@ class EditProfile extends React.Component {
                                                         <h4>{item.item_name}</h4>
                                                         <button onClick={event => this.renderDelete(event)}>Delete</button>
                                                         {
-                                                            this.state.showDelete && item.id == this.state.id
+                                                            this.state.showDelete && item.id === parseInt(this.state.id)
                                                             ? <div>
                                                                 <p>Are you sure?</p>
                                                                 <button onClick={event => this.props.handleDeleteItem(event)}>Delete Forever</button>
