@@ -17,6 +17,11 @@
     color: white;
 }
 
+.checkout p, .checkout h5, .checkout label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .checkout form fieldset {
     padding: 50px;
 } 
@@ -27,6 +32,12 @@
 
 .checkout .creditcard {
     padding: 20px;
+}
+
+.checkout .creditcard-input {
+    text-align: right;
+    margin: 0 auto;
+    width: 50%;
 }
 
 .checkout .creditcard h5, .checkout .creditcard p {
@@ -68,4 +79,38 @@
     .checkout form .rental-period label {
         padding: 10px;
     }
+
+    .checkout .creditcard-input {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .checkout .creditcard .creditcard-input {
+        width: 40%;
+    } 
+
+    .checkout form .rental-period label, .checkout form .rental-period input {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .checkout form .rental-period label {
+        padding: 15px;
+    }
+
+    .checkout form fieldset {
+        padding: 10px;
+    }
+}
+
+/* media query for sideways tablet */
+
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+    .checkout .creditcard .creditcard-input {
+        width: 30%;
+    } 
 }

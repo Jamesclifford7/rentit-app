@@ -4,7 +4,6 @@ import './Profile.css'
 import { Link } from 'react-router-dom'
 
 function Profile(props) {
-    console.log(props.listedItems)
     return (
         <>
             { 

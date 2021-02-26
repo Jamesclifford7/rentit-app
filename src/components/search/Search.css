@@ -15,6 +15,8 @@
 
 .search label {
     color: white;
+    font-weight: bold; 
+    font-size: 20px;
 }
 
 .search label, .search button {
@@ -45,4 +47,21 @@
     .search {
         margin-bottom: 700px; 
     }
+    /*
+    .search label {
+        color: white;
+        font-weight: normal; 
+        font-size: normal;
+    } 
+
+    .search label, .search input {
+        display: block;
+    } */
+
+    .search form label, .search form input, .search form select, .search form button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
+    }
 }
+

@@ -291,7 +291,6 @@ class App extends React.Component {
 
     const item_name = event.target.itemname.value; 
     const category = parseInt(event.target.category.value); 
-    // const img = event.target.img.value; 
     const daily_cost = parseInt(event.target.dailycost.value); 
     const weekly_cost = parseInt(event.target.weeklycost.value); 
     const owner_username = event.target.ownerusername.value; 
@@ -478,7 +477,7 @@ class App extends React.Component {
   
   handleDeleteItem = (event) => {
     event.preventDefault(); 
-    const itemId = parseInt(event.target.parentNode.id)
+    const itemId = parseInt(event.target.parentNode.parentNode.id)
 
     // removing the user's listed items
     

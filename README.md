@@ -36,5 +36,5 @@ Rentit is a platform that allows users to rent items from other users in their c
 
 ## Technologies Used
 
-Built with React.js
+Built with React.js (HTML, CSS, and JavaScript)
 

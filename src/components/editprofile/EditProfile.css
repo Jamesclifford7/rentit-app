@@ -8,6 +8,14 @@
     border-top-left-radius: 25px;
 }
 
+.edit-profile .edit-profile-input {
+    text-align: right;
+    /* margin: 0 auto; */
+    margin-left: 170px;
+    width: 38%;
+    /* border: solid; */
+}
+
 .edit-profile img, .edit-profile button, .edit-profile input, .edit-profile select {
     margin-bottom: 10px;
 }
@@ -39,11 +47,36 @@
     margin-right: 10px;
 }
 
+.listing div {
+    text-align: center;
+}
+
+.listing div button {
+    float: none;
+}
+
 /* media query for phone */
 
 @media all and (max-width: 450px) {
     .edit-profile {
         width: 90%;
+    }
+
+    .edit-profile .edit-profile-input {
+        text-align: center;
+        margin: 0 auto;
+        /* width: 50%; */
+        width: 99%;
+    }
+
+    .edit-profile label, .edit-profile input, .edit-profile select {
+        margin-left: 0px; 
+        display: block;
+        margin: 0 auto;
+    }
+
+    .edit-profile label {
+        padding: 10px;
     }
 
     .edit-profile .listings .listing {
@@ -65,5 +98,15 @@
 @media all and (min-width: 600px) and (max-width: 900px) {
     .edit-profile {
         width: 90%; 
+    }
+}
+
+/* media query for sideways tablet */
+
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+    .edit-profile .edit-profile-input {
+        /* border: solid; */
+        width: 50%;
+        margin-left: 100px;
     }
 }

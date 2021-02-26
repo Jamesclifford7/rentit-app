@@ -118,12 +118,14 @@ class Checkout extends React.Component {
                                                             <h5>Demo Card Number:</h5><p> 4012888888881881</p><br/>
                                                             <h5>Demo Expiration:</h5><p> 08/30</p><br/>
                                                             <h5>Demo Security:</h5><p> 342</p><br/>
-                                                            <label htmlFor="ccnumber">Credit Card Number:</label>
-                                                            <input id="ccnumber" type="tel" /><br/>
-                                                            <label htmlFor="expiration">Expiration Date:</label>
-                                                            <input id="expiration" type="text" /><br/>
-                                                            <label htmlFor="securitycode">Security Code:</label>
-                                                            <input id="securitycode" type="text" />
+                                                            <div className="creditcard-input">
+                                                                <label htmlFor="ccnumber">Credit Card Number:</label>
+                                                                <input id="ccnumber" type="tel" /><br/>
+                                                                <label htmlFor="expiration">Expiration Date:</label>
+                                                                <input id="expiration" type="text" /><br/>
+                                                                <label htmlFor="securitycode">Security Code:</label>
+                                                                <input id="securitycode" type="text" />
+                                                            </div>
                                                         </fieldset>
                                                         <button type="submit">Checkout</button>
                                                     </form>

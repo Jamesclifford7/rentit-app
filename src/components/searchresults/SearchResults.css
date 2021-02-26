@@ -14,6 +14,8 @@
 
 .search-results label {
     color: white;
+    font-weight: bold; 
+    font-size: 20px;
 }
 
 .search-results label, .search-results button {
@@ -124,5 +126,15 @@
 
     .results .results-map {
         display: none;
+    }
+}
+
+/* media query for tablet */
+
+@media all and (min-width: 600px) and (max-width: 900px) {
+    .search-results form label, .search-results form input, .search-results form select, .search-results form button {
+        margin: 0 auto;
+        display: block;
+        margin-top: 10px;
     }
 }

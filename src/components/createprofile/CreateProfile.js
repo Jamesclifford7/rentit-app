@@ -13,7 +13,6 @@ function CreateProfile(props) {
                     <div className="create-profile">
                         <h1>Create Profile</h1>
                         <img src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png" height="100" width="auto" alt="profile icon" /><br/>
-                        <button>Upload Image</button>
                         <form onSubmit={event => props.handleCreateProfile(event)}>
                             <label htmlFor="name">Name:</label>
                             <input id="name" type="text" required/><br/>

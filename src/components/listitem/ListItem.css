@@ -14,6 +14,13 @@
     color: white;
 }
 
+.list-item form .list-item-input {
+    text-align: right;
+    /* border: solid; */
+    width: 38%;
+    margin-left: 240px;
+}
+
 .list-item label {
     color: white;
 }
@@ -29,6 +36,14 @@
         width: 90%;
     }
 
+    .list-item form .list-item-input {
+        text-align: right;
+        /* border: solid; */
+        width: 93%;
+        /* margin-left: 240px; */
+        margin-left: 0;
+    }
+
     .list-item button {
         margin: 15px;
     }
@@ -39,5 +54,22 @@
 @media all and (min-width: 600px) and (max-width: 900px) {
     .list-item {
         margin-bottom: 500px; 
+    }
+
+    .list-item form .list-item-input {
+        text-align: right;
+        width: 38%;
+        margin: 0 auto; 
+        /* margin-left: 150px; */
+    }
+}
+
+/* media query for sideways tablet */
+
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+    .list-item form .list-item-input {
+        margin-left: 140px;
+        width: 50%;
+        /* border: solid; */
     }
 }
