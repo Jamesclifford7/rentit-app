@@ -30,9 +30,10 @@ class Nav extends React.Component {
                                 this.state.showMenu
                                 ? <CSSTransition
                                 in={this.state.showMenu}
-                                timeout={2000}
+                                appear={true}
+                                timeout={1000}
                                 classNames="display"
-                                unmountOnExit>
+                                unmountOnExit >
                                     <div className="dropdown-container">
                                         <div className="dropdown-triangle"></div>
                                         <div className="dropdown">

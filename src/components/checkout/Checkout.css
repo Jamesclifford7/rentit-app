@@ -17,11 +17,6 @@
     color: white;
 }
 
-.checkout p, .checkout h5, .checkout label {
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .checkout form fieldset {
     padding: 50px;
 } 
