@@ -99,7 +99,8 @@ header nav ul li img {
 .dropdown-container {
     width: 10%;
     position: absolute; 
-    margin-right: 18px;
+    /* margin-right: 18px; */
+    margin-right: 12px;
     margin-top: 40px;
     text-align: center;
 }
@@ -144,6 +145,17 @@ header nav ul li img {
     font-size: inherit;
     font-family: 'Poppins', sans-serif;
     text-decoration: underline;
+}
+
+.display-appear {
+    opacity: 0;
+    /* height: 0px; */
+}
+
+.display-appear-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    /* transition: opacity 1000ms ease-in;  */
 }
 
 /* media query for phone */ 
@@ -194,29 +206,32 @@ header nav ul li img {
        margin: 0 auto;
        width: 100%;
        position: static;
+       /* transition-property: height; 
+       transition-duration: 3s;
+       transition-timing-function: ease-in; */
    }
 
    .dropdown-container .dropdown a, .dropdown-container .dropdown button {
        padding: 5px;
    }
-
-   .display-enter {
+/* 
+   .display-appear {
         opacity: 0;
     }
 
-    .display-enter-active {
+    .display-appear-active {
         opacity: 1;
-        transition: opacity 1000ms ease-in; 
+        transition: opacity 1s ease-in;
+    } */
+
+    /* .display-appear-done {
+        opacity: 1;
     }
 
-    .display-exit {
-        opacity: 1;
-    }
-
-    .display-exit-active {
+    .display-enter-done {
         opacity: 0;
         transition: opacity 1000ms ease-in; 
-    }  
+    }   */
 }
 
 /* media query for tablet */

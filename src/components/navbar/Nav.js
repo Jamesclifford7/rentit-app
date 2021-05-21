@@ -30,7 +30,8 @@ class Nav extends React.Component {
                                 this.state.showMenu
                                 ? <CSSTransition
                                 in={this.state.showMenu}
-                                appear={true}
+                                // appear={true}
+                                appear
                                 timeout={1000}
                                 classNames="display"
                                 unmountOnExit >
