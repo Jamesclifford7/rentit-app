@@ -59,7 +59,8 @@ function SearchResults(props) {
                                     /* width="450"
                                     height="250"
                                     frameBorder="0" style={{border:0}} */
-                                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${props.searchValues[1]}`} allowFullScreen>
+                                    // src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${props.searchValues[1]}`} allowFullScreen> stopped working, need to trobuleshoot
+                                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyApS1VF4GSnDqqOFg6MoMn_8PAVjuBYjPo&q=${props.searchValues[1]}`} allowFullScreen> 
                                 </iframe>
                             </div>
 
